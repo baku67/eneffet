@@ -5,6 +5,8 @@
         <meta charset="utf-8" />
         <title>Eneffet</title>
         <link href="style.css" rel="stylesheet" />
+        <script src="script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </head>
 
     <body style="text-align:center;">
@@ -13,10 +15,10 @@
             <div class="force-overflow"></div>
         </div> -->
 
-        <h1 id="titre">&nbsp;&nbsp; Eneffet</h1>
+        <a href="index.php"><h1 id="titre">&nbsp;&nbsp; Eneffet</h1></a>
 
         <a href="index.php"><p id="returnArrowButton">&#60;</p></a>
-        <h2>Details du poste</h2>
+        <h2>Fiche emploi N°<?= htmlspecialchars($job['identifier']) ?></h2>
 
         <div id="jobDetail">
             
@@ -40,7 +42,7 @@
             <p class="rightAlign">Date de début: <span class="jobDetailData"><?= ucfirst(htmlspecialchars($job['start_date'])) ?></span></p>
 
 
-            <button>Postuler</button><button>Poser une question</button>
+            <button class="validateButton">Postuler</button><button>Poser une question</button><button class="alertButton">Ne plus proposer</button>
             <br />
         </div>
 

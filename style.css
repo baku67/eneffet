@@ -4,6 +4,16 @@
 /* Lors inscription: Chercheur d'emploi OU employeur */
 /* Si employeur, possibilité de voir ses offres d'emplois, les modifier, le nbr de clics, les conversations */
 
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Nanum+Myeongjo&display=swap');
+
+.job {
+    position:relative; 
+    border:2px solid rgba(68, 3, 189, 0.7); 
+    border-radius: 6px; 
+    padding:10px 20px; 
+    width:30%; 
+    margin: 25px auto
+}
 #jobDetail {
     border: 2px solid rgb(68, 3, 189);
     border-radius: 6px;
@@ -19,7 +29,10 @@
 
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
+}
 
+#connexionDiv {
+    padding: 25px 10px;
 }
 
 #returnArrowButton {
@@ -89,49 +102,149 @@ button:hover {
     color: aliceblue;
 }
 
+.alertButton {
+    border: 2px solid rgb(189, 3, 74);
+    color: rgb(189, 3, 74);
+}
+.alertButton:hover {
+    border: 2px solid rgb(189, 3, 74);
+    background-color: rgb(189, 3, 74);
+    color: aliceblue;
+}
+
+.validateButton {
+    border: 2px solid rgb(3, 189, 111);
+    color: rgb(3, 189, 111);
+}
+.validateButton:hover {
+    border: 2px solid rgb(3, 189, 111);
+    background-color: rgb(3, 189, 111);
+    color: aliceblue;
+}
+
+
 .inversedButton {
-    border-radius: 5px;
-    padding: 10px 20px;
-    border: 2px solid rgb(68, 3, 189);
-    cursor: pointer;
-    background-color: rgb(68, 3, 189);
+    border: 2px solid rgb(3, 189, 111);
+    background-color: rgb(3, 189, 111);
     color: aliceblue;
 
     transition: all 0.5s;
 }
 .inversedButton:hover {
-    background-color: white;
-    color: rgb(68, 3, 189);
+    border: 2px solid rgb(3, 189, 111);
+    color: rgb(3, 189, 111);
+    background-color: aliceblue;
 }
 
 h1, h2, h3, h4, button, p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 a {
     text-decoration: none;
+    color: inherit;
+}
+
+#connexionSeparator {
+    background: -webkit-linear-gradient(left, #f2f5f8 0%, rgb(68, 3, 189) 50%, #f2f5f8 100%);
+    height:2px;
+    width:28%;
+    opacity:0.5; 
+    margin:auto;
 }
 
 #titre {
     width: 100%;
-    padding: 20px 0px;
+    padding: 20px 15px;
     background-color: rgb(68, 3, 189);
     color: aliceblue;
 
     text-align: left;
 
 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: 'Nanum Myeongjo', serif;;
 
     margin-block-start: 0em;
     margin-block-end: 0em;
+
+    transition: all 0.35s;
+}
+#titre:hover {
+    color: rgb(1, 253, 220);
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-family: 'Nanum Myeongjo', serif;
 }
 
 
 
+.fadeOut {
+    animation: fadeOut 0.5s forwards ease-out, minimize 0.3s 0.5s forwards ease-out;
+    opacity: 1;
+}
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+@keyframes minimize {
+    from {
+        height: 185px;
+    }
+    to {
+        height: 0px;
+    }
+}
+
+
+
+
+#closeCross {
+    position:absolute; 
+    top:15px; 
+    right:15px;
+    color:rgb(68, 3, 189);
+    cursor: pointer;
+    font-size: 1.4em;
+    opacity: 0.7;
+
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+
+    transition: all 0.3s;
+}
+#closeCross:hover {
+    color: rgb(189, 3, 74);
+    opacity: 1;
+}
+
+#pageTitle {
+    margin-top: 35px;
+}
+
+
 body {
     margin: 0;
-    background-color: #dbdfe3;
+    background-color: #f2f5f8;
+
+    opacity: 0;
+    animation: bodyFadeIn 0.3s 1 forwards ease-in-out;
+}
+@keyframes bodyFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 #date {

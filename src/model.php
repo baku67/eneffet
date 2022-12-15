@@ -42,13 +42,14 @@
         $database = dbConnect();
 
         $statement = $database->prepare(
-            "SELECT title, author, date_creation, content, driving_licence, category, locality, company, start_date, exp_years_needed, contract_type FROM jobs WHERE id = ?"
+            "SELECT id, title, author, date_creation, content, driving_licence, category, locality, company, start_date, exp_years_needed, contract_type FROM jobs WHERE id = ?"
         );
         $statement->execute([$identifier]);
 
 
         $row = $statement->fetch();
         $job = [
+            'identifier' => $row['id'],
             'title' => $row['title'],
             'author' => $row['author'],
             'date_creation' => $row['date_creation'],

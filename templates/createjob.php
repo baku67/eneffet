@@ -5,10 +5,12 @@
         <meta charset="utf-8" />
         <title>Eneffet</title>
         <link href="style.css" rel="stylesheet" />
+        <script src="script.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     </head>
 
     <body style="text-align:center;">
-        <h1 id="titre">&nbsp;&nbsp; Eneffet</h1>
+    <a href="index.php"><h1 id="titre">&nbsp;&nbsp; Eneffet</h1></a>
         <!-- <h2>Recherche d'emploi</h2> -->
 
         <h2>Publier une offre d'emploi</h2>
