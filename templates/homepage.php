@@ -11,44 +11,38 @@
 
     <body style="text-align:center;">
         <h1 id="titre">&nbsp;&nbsp; <a href="index.php">Eneffet</a></h1>
-        <!-- <h2>Recherche d'emploi</h2> -->
 
         <div id="connexionDiv" style="position:relative;">
-            <p id="closeCross">&#10006;</p>
-            <p>Créez un compte rapidement et gratuitement pour postuler à une offre d'emploi ou en publier une !</p>
+            <p id="closeCross">&times;</p>
+            <p>Créez un compte rapidement et <span style="color:rgb(68, 3, 189); font-weight:bold;">gratuitement</span> pour postuler à une offre d'emploi ou en publier une !</p>
             <button id="connexionButton">Connexion</button><button id="subscribeButton">Inscription</button>
             <div id="connexionSeparator"></div>
         </div>
 
-
-
         <h2 id="pageTitle">Offres d'emploi</h2>
 
-        <!-- Ici un load JS ? -->
         <a href="createjob.php"><button class="inversedButton">Publier une offre d'emploi</button></a>
-        <!-- <div style="height:1px;width:25%;background-color:grey;margin:20px auto;"></div> -->
 
-
-        <!-- Titre en aliceblue sur fond bleu (header de chaque vignette) -->
         <?php
         foreach($jobs as $job) {
         ?>
             <div class="job">
-                <p id="date">Publication le <?= $job['date_creation'] ?></p>
-                <h4><?= htmlspecialchars($job['title']) ?></h4>
-                <a href="job.php?id=<?= urlencode($job['identifier']) ?>"><button>Voir détail</button></a>
+                <p id="test">Test</p>
+                <a href="job.php?id=<?= urlencode($job['identifier']) ?>">
+                    <h4 class="jobPreviewTitle"><?= htmlspecialchars($job['title']) ?></h4>
+                    <p id="date">Publié le <?= $job['date_creation'] ?></p>
+
+                    <p class="jobPreviewLine">Localité &nbsp;<span class="jobPreviewData"><?= ucfirst(htmlspecialchars($job['locality'])) ?></span></p>
+                    <p class="jobPreviewLine">Type &nbsp;<span class="jobPreviewData"><?= strtoupper(htmlspecialchars($job['contract_type'])) ?></span></p>
+                    <p class="jobPreviewLine">Entreprise &nbsp;<span class="jobPreviewData"><?= ucfirst(htmlspecialchars($job['company'])) ?></span></p>
+                    <p class="jobPreviewLine">Experience requise &nbsp;<span class="jobPreviewData"><?= ucfirst(htmlspecialchars($job['exp_years_needed'])) ?></span></p>
+
+                    <!-- <a href="job.php?id=<?= urlencode($job['identifier']) ?>"><button>Voir détail</button></a> -->
+                </a>
             </div>
-
-            <!-- <div style="height:1px;width:25%;background-color:grey; opacity:0.5; margin:20px auto;"></div> -->
-
         <?php
         }
         ?>
 
-        
-
     </body>
-
-
-
 </html>

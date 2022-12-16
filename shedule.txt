@@ -1,0 +1,8 @@
+Favoris: toggle l'url de l'image au click (JS), et envoi BDD (id de l'offre)
+Lors chargement homepage connecté: toggle favoris si id de l'offre déja favorisé
+Page favoris du coup (user)
+
+
+Bandeau *Nouveau si offre du jour
+
+include_once header et footer.php

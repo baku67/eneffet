@@ -1,9 +1,8 @@
 <h2>Connexion</h2>
 
-<form>
-    <!-- Mettre des select pour locality, company, .../ Radio pour contract Type, toogle Permis B -->
-    <label for="password">Identifiant</label>
-    <input type="text" id="password" name="password">
+<form action="" method="post">
+    <label for="username">Identifiant</label>
+    <input type="text" id="username" name="username">
     <br />
     <label for="password">Mot de passe</label>
     <input type="password" id="password" name="password">

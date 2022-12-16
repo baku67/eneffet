@@ -17,7 +17,7 @@
         $database = dbConnect();
 
         $statement = $database->query(
-            "SELECT id, title, author, date_creation FROM jobs ORDER BY date_creation DESC"
+            "SELECT id, title, author, date_creation, locality, contract_type, company, exp_years_needed FROM jobs ORDER BY date_creation DESC"
         );
 
         $jobs = [];
@@ -28,6 +28,10 @@
                 'title' => $row['title'],
                 'author' => $row['author'],
                 'date_creation' => $row['date_creation'],
+                'locality' => $row['locality'],
+                'contract_type' => $row['contract_type'],
+                'company' => $row['company'],
+                'exp_years_needed' => $row['exp_years_needed'],
             ];
 
             $jobs[] = $job;
