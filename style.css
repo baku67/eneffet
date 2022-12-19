@@ -6,6 +6,35 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Nanum+Myeongjo&display=swap');
 
+.form-message {
+    color: rgb(209, 1, 1);
+    font-weight: bold;
+    font-size: 1.5em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#navList {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    padding: 5px 10px;
+
+    /* position: absolute; */
+    position: fixed;
+    right:0;
+    top:0;
+    margin-top:35px;
+    color:aliceblue;
+}
+.navLink {
+    display:inline;
+    padding: 5px 10px;
+    margin: 0px 10px;
+}
+
+#main{
+    margin-top: 80px;
+} 
+
 .job {
     position:relative; 
     border:2px solid rgba(68, 3, 189, 0.7); 
@@ -162,8 +191,11 @@ a {
 }
 
 #titre {
+    position: fixed;
+    top:0;
+
     width: 100%;
-    padding: 20px 15px;
+    padding: 15px 15px;
     background-color: rgb(68, 3, 189);
     color: aliceblue;
 

@@ -1,3 +1,6 @@
+Afficher la div de connexion uniquement si Guest
+NavBarre avec Recherche, Compte, bouton deco 
+
 Favoris: toggle l'url de l'image au click (JS), et envoi BDD (id de l'offre)
 Lors chargement homepage connecté: toggle favoris si id de l'offre déja favorisé
 Page favoris du coup (user)
