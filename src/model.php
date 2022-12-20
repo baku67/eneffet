@@ -36,11 +36,11 @@
 
             $jobs[] = $job;
         }
-
         return $jobs;
     }
 
 
+    
     function getJob($identifier) {
 
         $database = dbConnect();
@@ -49,7 +49,6 @@
             "SELECT id, title, author, date_creation, content, driving_licence, category, locality, company, start_date, exp_years_needed, contract_type FROM jobs WHERE id = ?"
         );
         $statement->execute([$identifier]);
-
 
         $row = $statement->fetch();
         $job = [
@@ -68,7 +67,4 @@
         ];
         
         return $job;
-
-
-
     }

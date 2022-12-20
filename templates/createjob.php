@@ -10,7 +10,7 @@
     </head>
 
     <body style="text-align:center;">
-    <a href="index.php"><h1 id="titre">&nbsp;&nbsp; Eneffet</h1></a>
+    <a href="index.php"><h1 id="titre"> Eneffet</h1></a>
         <!-- <h2>Recherche d'emploi</h2> -->
 
         <h2>Publier une offre d'emploi</h2>

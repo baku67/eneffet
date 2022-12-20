@@ -13,12 +13,15 @@
     <body style="text-align:center;">
 
         <div>
-            <h1 id="titre">&nbsp;&nbsp; <a href="index.php">Eneffet</a></h1>
-            <ul id="navList">
-                <a href=""><li class="navLink">Recherche</li></a>
-                <a href=""><li class="navLink">Compte</li></a>
-                <a href="./controllers/Users.php?q=logout"><li class="navLink">Déconnexion</li></a>
-            </ul>
+            <h1 id="titre"><a href="index.php"> Eneffet</a></h1>
+            <?php if(isset($_SESSION['usersName'])) {
+                echo '<ul id="navList">
+                <a href="index.php"><li id="testt" class="navLink navButton navActive">Recherche</li></a>
+                <a href="account.php"><li class="navLink navButton">Profil</li></a>
+                <a href="./controllers/Users.php?q=logout"><li id="decoButton" class="navLink">Déconnexion</li></a>
+                </ul>';
+            }
+            ?>
         </div>
 
         <div id="main">
