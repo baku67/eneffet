@@ -27,7 +27,7 @@
 
             <form action="account.php" method="post">
                 <input type="hidden" name="type" value="saveCv">
-                <label class="labelCv" for="cv_first_name">Prénom:</label><br />
+                <label class="labelCv" for="cv_first_name" style="margin-top:19px;">Prénom:</label><br />
                 <input class="inputCv" type='text' id="cvFirstName" name="cv_first_name" value="<?= ucfirst(htmlspecialchars($cv['cv_first_name']));?>" disabled>
                 <br />
                 <label class="labelCv" for="cv_last_name">Nom:</label>
@@ -57,8 +57,10 @@
             </form>
             <br />
 
-            <button>Ajouter une expérience</button>
-            <button>Ajouter une formation</button>
+            <div id="addEventDiv">
+                <button id="addExpButton">Ajouter une expérience</button>
+                <button id="addFormationButton">Ajouter une formation</button>
+            </div>
 
             <br />
             <br />

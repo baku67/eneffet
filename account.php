@@ -4,9 +4,6 @@
     require_once 'helpers/session_helper.php';
     require('src/account.php');
 
-    function saveCv(){
-
-    }
 
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
