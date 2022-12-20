@@ -26,7 +26,7 @@
 
         <div id="main">
 
-            <h1>Welcome, <?php if(isset($_SESSION['usersId'])){
+            <h1 id="titlePage">Welcome, <?php if(isset($_SESSION['usersId'])){
                 echo explode(" ", $_SESSION['usersName'])[0];
                 echo $_SESSION['usersId'];
             }else{
@@ -51,6 +51,8 @@
             <h2 id="pageTitle">Offres d'emploi</h2>
 
             <a href="createjob.php"><button class="inversedButton">Publier une offre d'emploi</button></a>
+            <label for="searchFilter">Catégorie</label>
+            <input type="select" placeholder="Filtrer la recherche">
 
             <?php
             foreach($jobs as $job) {

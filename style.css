@@ -44,6 +44,10 @@
     cursor: pointer;
 }
 
+#titlePage {
+    margin-top: 110px;
+}
+
 
 .navButton {
     border-top-left-radius: 2px;
@@ -75,7 +79,7 @@
 .job {
     position:relative; 
     border:2px solid rgba(68, 3, 189, 0.7); 
-    border-radius: 6px; 
+    border-radius: 3px; 
     /* padding:10px 20px;  */
     width:30%; 
     margin: 25px auto;
@@ -100,12 +104,24 @@
     margin-block-start: 0em;
     padding: 17px 0;
 
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 #connexionDiv {
     padding: 25px 10px;
+}
+
+.grisedButton {
+    cursor: default;
+    border-color: rgb(194, 194, 194) !important;
+    color: rgb(194, 194, 194) !important;
+    border-width: 1px;
+    background-color: #f2f5f8 !important;
+
+}
+.grisedButton:hover {
+    background-color: #f2f5f8 !important;
 }
 
 #returnArrowButton {
@@ -154,7 +170,7 @@
 }
 
 button {
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 10px 20px;
     border: 2px solid rgb(68, 3, 189);
     color: rgb(68, 3, 189);
@@ -246,6 +262,10 @@ a {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+
+    color: rgb(68, 3, 189);
+    opacity: 0.5;
+    font-weight: bold;
 }
 .labelCv {
     position: absolute;

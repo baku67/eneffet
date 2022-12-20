@@ -18,13 +18,13 @@
 
         // TEST
         $statement = $database->prepare(
-            "UPDATE cv SET cv_first_name = ? WHERE user_id = ?"
+            "UPDATE cv SET cv_first_name = ?, cv_last_name = ?, cv_tel = ?, cv_email = ?, cv_driving_licence = ?, cv_address = ?, cv_age = ? WHERE user_id = ?"
         );
-        $statement->execute([$data['cv_first_name'], $data['user_Id']]);
+        $statement->execute([$data['cv_first_name'], $data['cv_last_name'], $data['cv_tel'], $data['cv_email'], $data['cv_driving_licence'], $data['cv_address'], $data['cv_age'],$data['user_Id']]);
     }
 
 
-    
+
 
     function getCv($identifier) {
         $database = dbConnect();

@@ -1,5 +1,14 @@
-Afficher la div de connexion uniquement si Guest
-NavBarre avec Recherche, Compte, bouton deco 
+Finir tous les champs save
+
+
+Sauvegarder (grisé) que si modif (comparé avec temp qui contient les valeurs GET)
+Annuler ducoup remet les valeurs get et regrise le sauvegarder
+
+
+Lors 'sauvegarde' button, check front (js) si champs vides ou pas coorespondant (tel doit etre int, mail check web, etc...)
+Boutons ajouter une experience/formation (2 tables relationnelles user)
+Systeme de filre par catégorie 
+
 
 Favoris: toggle l'url de l'image au click (JS), et envoi BDD (id de l'offre)
 Lors chargement homepage connecté: toggle favoris si id de l'offre déja favorisé
