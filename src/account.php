@@ -11,9 +11,20 @@
         }
     }
 
-    function saveCv() {
 
+
+    function saveCvModel($data) {
+        $database = dbConnect();
+
+        // TEST
+        $statement = $database->prepare(
+            "UPDATE cv SET cv_first_name = ? WHERE user_id = ?"
+        );
+        $statement->execute([$data['cv_first_name'], $data['user_Id']]);
     }
+
+
+    
 
     function getCv($identifier) {
         $database = dbConnect();

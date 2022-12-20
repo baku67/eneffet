@@ -28,6 +28,7 @@
 
             <h1>Welcome, <?php if(isset($_SESSION['usersId'])){
                 echo explode(" ", $_SESSION['usersName'])[0];
+                echo $_SESSION['usersId'];
             }else{
                 echo 'Guest';
             }
