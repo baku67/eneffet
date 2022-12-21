@@ -39,7 +39,7 @@
 }
 
 .saveCv {
-    border-radius: 5px;
+    border-radius: 3px;
     padding: 10px 20px;
     margin: 20px 15px;
     cursor: pointer;
@@ -280,12 +280,47 @@ a {
     opacity: 0.7;
     font-weight: bold;
 }
+.inputCvExp {
+    width: 35%;
+    padding: 12px 15px;
+    margin: 25px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    color: rgb(68, 3, 189);
+    opacity: 0.7;
+    font-weight: bold;
+}
 .labelCv {
     position: absolute;
     left: 33%;
     margin-top: -0px; 
     opacity: 0.7;
     font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+}
+.labelCvExp {
+    position: absolute;
+    left: 33%;
+    margin-top: -0px; 
+    opacity: 0.7;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+}
+
+.inputFilter {
+    width: 15%;
+    padding: 12px 15px;
+    margin: 25px 0;
+    display: inline-block;
+    border: 1px solid rgb(36, 36, 36);
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    color: rgb(0, 4, 61);
+    opacity: 0.7;
     font-weight: bold;
 }
 
@@ -375,7 +410,36 @@ h2 {
 }
 
 
+.inputBgColorBlue {
+    background-color: #9fc0ee;
+}
+
+#cvScrollContainer {
+    /* overflow-y:scroll; 
+    height:auto; */
+
+}
+
+#jobsContainer {
+    overflow-y:scroll; 
+    height:600px;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+#jobsContainer::-webkit-scrollbar {
+    display: none; /* Chrome */
+} 
+
+/*  Empeche le scroll (car sinon <img> background couvre pas tout) */
+/* html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+} */
+
 body {
+    scrollbar-color: blue;
     margin: 0;
     background-color: #f2f5f8;
 

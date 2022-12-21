@@ -1,5 +1,16 @@
-Options front du form CV (permis, etc...)
-Finir l'ajout d'experience (table a part avec userID)
+Options/select/checkbox front du form CV (permis, etc...)
+Controles front form
+Finir l'ajout d'experience (table a part avec userID), max 5? <input type="datetime-local"> pour dates experiences
+
+Filtre location par departement ?
+
+Si on garde le background-image, onglet active: ajouter le background-color et color correspondant
+
+Lors ajut d'experience/formation, ne pas oublier le input hidden avec le type d'action
+
+Background-image body: https://www.digitalocean.com/community/tutorials/how-to-change-a-css-background-images-opacity
+
+favoris (id, userId, jobId)
 
 Lors 'sauvegarde' button, check front (js) si champs vides ou pas coorespondant (tel doit etre int, mail check web, etc...)
 Boutons ajouter une experience/formation (2 tables relationnelles user)

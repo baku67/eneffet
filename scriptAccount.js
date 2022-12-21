@@ -111,17 +111,62 @@ window.onload = function() {
     expForm.setAttribute("id", "expForm");
     expForm.setAttribute("method", "post");
     expForm.setAttribute("action", "");
+
     let expLabel1 = document.createElement("label");
     expLabel1.setAttribute("for", "expContent");
-    expLabel1.innerText = "Contenu";
-    let expInput1 = document.createElement("input");
+    expLabel1.innerText = "Description";
+    expLabel1.classList.add("labelCvExp")
+    let expInput1 = document.createElement("textarea");
     expInput1.setAttribute("name", "expContent");
     expInput1.setAttribute("type", "text");
+    expInput1.setAttribute("rows", "6");
+    expInput1.classList.add("inputCvExp");
+
+    let expLabel2 = document.createElement("label");
+    expLabel2.setAttribute("for", "expBeginDate");
+    expLabel2.innerText = "Date début:";
+    expLabel2.classList.add("labelCvExp")
+    let expInput2 = document.createElement("input");
+    expInput2.setAttribute("name", "expBeginDate");
+    expInput2.setAttribute("type", "date");
+    expInput2.classList.add("inputCvExp");
+
+    let expLabel3 = document.createElement("label");
+    expLabel3.setAttribute("for", "expEndDate");
+    expLabel3.innerText = "Date fin:";
+    expLabel3.classList.add("labelCvExp")
+    let expInput3 = document.createElement("input");
+    expInput3.setAttribute("name", "expEndDate");
+    expInput3.setAttribute("type", "date");
+    expInput3.classList.add("inputCvExp");
+
+    let expLabel4 = document.createElement("label");
+    expLabel4.setAttribute("for", "expTitle");
+    expLabel4.innerText = "Titre:";
+    expLabel4.classList.add("labelCvExp")
+    let expInput4 = document.createElement("input");
+    expInput4.setAttribute("name", "expTitle");
+    expInput4.setAttribute("type", "text");
+    expInput4.setAttribute("maxLength", "50");
+    expInput4.classList.add("inputCvExp");
+
+
+
+    // Ce serait bien que les 2 champs dates soient inline
     let validateAddExpButton = document.createElement("input");
     validateAddExpButton.type = "submit";
     validateAddExpButton.value = "Ajouter";
     validateAddExpButton.classList.add("inversedButton");
     validateAddExpButton.classList.add("Button2");
+    expForm.appendChild(expLabel2);
+    expForm.appendChild(expInput2);
+    expForm.appendChild(document.createElement("br"));
+    expForm.appendChild(expLabel3);
+    expForm.appendChild(expInput3);
+    expForm.appendChild(document.createElement("br"));
+    expForm.appendChild(expLabel4);
+    expForm.appendChild(expInput4);
+    expForm.appendChild(document.createElement("br"));
     expForm.appendChild(expLabel1);
     expForm.appendChild(expInput1);
     expForm.appendChild(document.createElement("br"));
