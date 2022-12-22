@@ -98,19 +98,26 @@ window.onload = function() {
     let cancelAddExp = document.createElement("button");
     cancelAddExp.setAttribute("type", "button");
     cancelAddExp.setAttribute("id", "cancelAddExp");
+    cancelAddExp.classList.add('alertButton');
     cancelAddExp.innerText = "Annuler";
     cancelAddExp.addEventListener("click", function() {
         // Remettre les boutons par default
         document.getElementById('addEventDiv').innerHTML = "";
-        document.getElementById('addEventDiv').append(addExpButton);
-        document.getElementById('addEventDiv').append(addFormationButton);
-    })
+        // document.getElementById('addEventDiv').append(addExpButton);
+        // document.getElementById('addEventDiv').append(addFormationButton);
+    });
 
 
     let expForm = document.createElement("form");
     expForm.setAttribute("id", "expForm");
     expForm.setAttribute("method", "post");
-    expForm.setAttribute("action", "");
+    expForm.setAttribute("action", "account.php");
+
+    let expInput0 = document.createElement("input");
+    expInput0.setAttribute("name", "type");
+    expInput0.setAttribute("value", "addExpCv");
+    expInput0.setAttribute("type", "hidden");
+    expInput0.classList.add("inputCvExp");
 
     let expLabel1 = document.createElement("label");
     expLabel1.setAttribute("for", "expContent");
@@ -157,7 +164,8 @@ window.onload = function() {
     validateAddExpButton.type = "submit";
     validateAddExpButton.value = "Ajouter";
     validateAddExpButton.classList.add("inversedButton");
-    validateAddExpButton.classList.add("Button2");
+    validateAddExpButton.classList.add("inputButton");
+    expForm.appendChild(expInput0);
     expForm.appendChild(expLabel2);
     expForm.appendChild(expInput2);
     expForm.appendChild(document.createElement("br"));
@@ -174,9 +182,16 @@ window.onload = function() {
     expForm.appendChild(validateAddExpButton);
 
 
+    // Smooth auto scroll to 'id'
+    function scrollToQuestionNode(id) {
+        const element = document.getElementById(id);
+        element.scrollIntoView({ block: 'end',  behavior: 'smooth' });
+    }
+
     document.getElementById('addExpButton').addEventListener("click", function() {
         document.getElementById('addEventDiv').innerHTML = "";
         document.getElementById('addEventDiv').append(expForm);
+        scrollToQuestionNode('addEventDiv');
         // document.getElementById('addEventDiv').append(cancelAddExp);
     })
 

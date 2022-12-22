@@ -47,6 +47,18 @@
 
 #titlePage {
     margin-top: 110px;
+
+}
+
+.titleBg {
+    background-image: url(images/5559852.jpg);
+    padding-top: 27px;
+    padding-bottom: 27px;
+    margin-top: 65px;
+    color: aliceblue;
+
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 
@@ -73,9 +85,38 @@
     color:aliceblue;
 }
 
+.deleteExperienceOrTraining {
+    color: rgb(189, 3, 105);
+    font-size: 2.5em;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    left: 30%;
+}
+
+.fa-pencil:before {
+    content: "\f040";
+    font-size: 1.4em;
+    color: darkgreen;
+    position: absolute;
+    right: 30%;
+}
+
+
 #main{
-    margin-top: 80px;
+    /* Désactivé car plus besoin? */
+    /* margin-top: 80px; */
+
+    /* homepage pas concernée car <img> et wrapper (pour gerer l'opacity) */
+    /* background: linear-gradient(129deg, rgba(172,250,255,0.6161827279740021) 0%, rgba(47,71,255,0.6722051369375875) 100%); */
 } 
+
+.inputButton {
+    border-radius: 3px;
+    padding: 10px 20px;
+    margin: 20px 15px;
+    cursor: pointer;
+}
 
 .job {
     position:relative; 
@@ -123,6 +164,40 @@
 }
 .grisedButton:hover {
     background-color: #f2f5f8 !important;
+}
+
+
+.experienceContent {
+    overflow: hidden;
+    max-height: 142px;
+}
+
+.trainingContent {
+    overflow: hidden;
+    max-height: 142px;
+}
+
+#experiencesWrapper {
+    display: inline-flex;
+    justify-content: center;
+}
+.experienceDiv {
+    border: 1px solid rgb(68, 3, 189);
+    border-top:4px solid rgb(68, 3, 189);
+    border-bottom:4px solid rgb(68, 3, 189);
+    background-color: rgba(172,250,255,0.2);
+    border-radius: 3px;
+    padding: 10px 20px;
+    width: 20%;
+    text-align: center;
+
+    margin: 0 4px;
+    cursor: pointer;
+
+    transition: all 0.5s;
+}
+.experienceDiv:hover {
+    background-color: #ccddfb;
 }
 
 #returnArrowButton {

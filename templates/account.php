@@ -7,6 +7,7 @@
         <link href="style.css" rel="stylesheet" />
         <script src="scriptAccount.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body style="text-align:center;">
@@ -22,9 +23,12 @@
             ?>
         </div>
 
-        <div id="main" >
+        <div id="main" style="background: linear-gradient(129deg, rgba(172,250,255,0.6161827279740021) 0%, rgba(47,71,255,0.6722051369375875) 100%);" >
+
             <div id="cvScrollContainer">
-                <h1 id="titlePage">C V</h2>
+                <h1 class="titleBg">C V</h2>
+
+                <?php flash('saveCv'); ?>
 
                 <form action="account.php" method="post">
                     <input type="hidden" name="type" value="saveCv">
@@ -58,14 +62,67 @@
                 </form>
                 <br />
 
-                <div id="addEventDiv">
-                    <button id="addExpButton">Ajouter une expérience</button>
-                    <button id="addFormationButton">Ajouter une formation</button>
-                </div>
+                
+
+
+                <!-- Separateur -->
 
                 <br />
                 <br />
-                <h2>Paramètres</h2>
+
+                <h2 class="titleBg">Expériences</h2><br />
+
+                <div id="addEventDiv">
+                    <?php flash('addExpCv'); ?>
+                    <!-- <button id="addExpButton">Ajouter une expérience</button> -->
+                    <!-- <button id="addFormationButton">Ajouter une formation</button> -->
+                </div>
+
+                <div id="experiencesWrapper">
+                    <?php 
+                        foreach ($exps as $exp) {
+                    ?>
+                            <div class="experienceDiv">
+                                <div style="position:relative;"><a href="account.php?action=delete&id=<?= urlencode($exp['exp_id']); ?>" class="deleteExperienceOrTraining">&times;</a><i class="fa fa-pencil"></i></div>
+                                <br />
+                                <h3 class="experienceTitle"><?= htmlspecialchars($exp['exp_title']); ?></h3>
+                                <p class="experienceDateLine">Du <?= $exp['exp_begin_date']; ?> au <?= $exp['exp_end_date']; ?></p>
+                                <p class="experienceContent"><?= htmlspecialchars($exp['exp_content']); ?></p>
+                            </div>
+                    <?php
+                        }
+                    ?>
+                    <button id="addExpButton">Ajouter une expérience</button>
+                </div>
+
+
+                <!-- Separateur -->
+                <br /><br /><br />
+
+
+                <h2 class="titleBg">Formations</h2><br />
+                <div id="trainingsWrapper">
+                    <?php 
+                        foreach ($trainings as $training) {
+                    ?>
+                            <div class="trainingDiv">
+                                <div style="position:relative;"><p class="deleteExperienceOrTraining">&times;</p><i class="fa fa-pencil"></i></div>
+                                <br />
+                                <h3 class="trainingTitle"><?= htmlspecialchars($training['training_title']); ?></h3>
+                                <p class="trainingDateLine">Du <?= $training['training_begin_date']; ?> au <?= $exp['training_end_date']; ?></p>
+                                <p class="trainingContent"><?= htmlspecialchars($training['training_content']); ?></p>
+                            </div>
+                    <?php
+                        }
+                    ?>
+                    <button id="addFormationButton">Ajouter une formation</button>
+                </div>
+
+                
+
+                <br />
+                <br />
+                <h2 class="titleBg">Paramètres</h2>
 
                 <label for="visibleToggle">Se rendre visible auprès des recruteurs:</label>
                 <input type="checkbox">

@@ -70,6 +70,7 @@
             </select>
             <label for="searchFilter2" class="labelCv" style="left:50.2%;">Location</label>
             <input type="select" name="searchFilter2" placeholder="Filtrer la recherche" class="inputBgColorBlue inputFilter">
+            <input type="submit" class="inversedButton inputButton" value="Chercher">
 
             <div id="jobsContainer">
                 <?php

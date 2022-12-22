@@ -10,9 +10,7 @@
         
         switch($_POST['type']){
             case "saveCv":
-
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
                 $data = [
                     'user_Id' => $_SESSION['usersId'],
                     'cv_first_name' => $_POST['cv_first_name'],
@@ -23,11 +21,45 @@
                     'cv_address' => $_POST['cv_address'],
                     'cv_age' => $_POST['cv_age']
                 ];
-
                 saveCvModel($data);
                 break;
-            }
+            
+            case "addExpCv":
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                $data = [
+                    'user_Id' => $_SESSION['usersId'],
+                    'exp_begin_date' => $_POST['expBeginDate'],
+                    'exp_end_date' => $_POST['expEndDate'],
+                    'exp_title' => $_POST['expTitle'],
+                    'exp_content' => $_POST['expContent']
+                ];
+                
+                
+                if(empty($data['exp_content']) || empty($data['exp_title']) || empty($data['exp_begin_date']) || empty($data['exp_end_date'])) {
+                    flash("addExpCv", "Veuillez remplir tous les champs");
+                    break;
+                }
+
+                addExpCv($data);
+                break;
+
+        }
     }
+
+    if (isset($_GET['action']) && $_GET['action'] !== '') {
+        if ($_GET['action'] === 'delete') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $expId = $_GET['id'];
+        
+                deleteExp($expId);
+            }
+        }
+    };
+
+
+    
+
+    
 
 
 
@@ -40,6 +72,7 @@
         die;
     }
     $cv = getCv($identifier);
+    $exps = getExperiences($identifier);
 
 
     require('templates/account.php');

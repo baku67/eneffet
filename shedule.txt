@@ -1,16 +1,15 @@
+Remove experience/Modify
+Quand clique sur modifier (experience), faire pop le form pré-remplis (là ou pop le form addExp)
+
+
 Options/select/checkbox front du form CV (permis, etc...)
-Controles front form
-Finir l'ajout d'experience (table a part avec userID), max 5? <input type="datetime-local"> pour dates experiences
+Controles front forms (avec flash) et controles back et encodage
 
-IDEE pour eviter pb de taille image-background: mettre l'image uniquement sur le backgrtound hors listeJobs (genre de header du main), laisser ou remettre le scroll de la page?
-
-Filtre location par departement ?
-
-Si on garde le background-image, onglet active: ajouter le background-color et color correspondant
-
-Lors ajut d'experience/formation, ne pas oublier le input hidden avec le type d'action
 
 Background-image body: https://www.digitalocean.com/community/tutorials/how-to-change-a-css-background-images-opacity
+IDEE pour eviter pb de taille image-background: mettre l'image uniquement sur le backgrtound hors listeJobs (genre de header du main), laisser ou remettre le scroll de la page?
+Si on garde le background-image, onglet active: ajouter le background-color et color correspondant
+
 
 favoris (id, userId, jobId)
 
