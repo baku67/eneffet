@@ -60,7 +60,20 @@
 
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+
+    background-position: right;
+    animation: titleBgSlide 1.5s 0s forwards ease;
 }
+@keyframes titleBgSlide {
+    from {
+        background-position: right;
+    }
+    to {
+        background-position: left;
+    }
+}
+
+
 
 
 .navButton {
@@ -214,7 +227,7 @@
 
 #gridCvPhotoContainer {
     display: grid; 
-    grid-template-columns: 1.4fr 0.6fr; 
+    grid-template-columns: 1.3fr 0.7fr; 
     grid-template-rows: 1fr; 
     /* gap: 0px 54px;  */
     grid-template-areas: 
@@ -557,7 +570,7 @@ a {
     transition: all 0.5s;
 }
 #titre a:hover {
-    color: rgb(1, 253, 220);
+    /* color: rgb(1, 253, 220); */
     letter-spacing: 2px;
 }
 
