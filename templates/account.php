@@ -30,6 +30,9 @@
 
                 <?php flash('saveCv'); ?>
 
+                
+                <img src="./cv_photo/bg.jpg" alt="image_cv" id="cvPhoto">
+
                 <form action="account.php" method="post">
                     <input type="hidden" name="type" value="saveCv">
                     <label class="labelCv" for="cv_first_name" style="margin-top:19px;">Prénom:</label><br />
@@ -45,16 +48,20 @@
                     <input class="inputCv" type='text' id="cvEmail" name="cv_email" value="<?= htmlspecialchars($cv['cv_email']);?>" disabled>
                     <br />
                     <label class="labelCv" for="cv_driving_licence">Permis B:</label>
-                    <input class="inputCv" type='text' id="cvDrivingLicence" name="cv_driving_licence" value="<?php if(htmlspecialchars($cv['cv_driving_licence'])==1){
+                    <!-- <input class="inputCv" type='text' id="cvDrivingLicence" name="cv_driving_licence" value="<?php if(htmlspecialchars($cv['cv_driving_licence'])==1){
                         echo "Oui";
                     }else {
                         echo "Non";
-                    }?>" disabled>
+                    }?>" disabled> -->
+                    <select class="inputCv" type='text' id="cvDrivingLicence" name="cv_driving_licence" disabled>
+                        <option <?php if(htmlspecialchars($cv['cv_driving_licence'])==1) {echo "selected";}?>>Oui</option>
+                        <option <?php if(htmlspecialchars($cv['cv_driving_licence'])==0) {echo "selected";}?>>Non</option>
+                    </select>
                     <br />
-                    <label class="labelCv" for="cv_age">Age:</label>
-                    <input class="inputCv" type='text' id="cvAge" name="cv_age" value="<?= htmlspecialchars($cv['cv_age']);?>" disabled>
+                    <label class="labelCv" for="cv_age">Date de naissance:</label>
+                    <input class="inputCv" type='date' id="cvAge" name="cv_age" value="<?= htmlspecialchars($cv['cv_age']);?>" disabled>
                     <br />
-                    <label class="labelCv" for="cv_address">Adresse:</label>
+                    <label class="labelCv" for="cv_address">Localité:</label>
                     <input class="inputCv" type='text' id="cvAddress" name="cv_address" value="<?= htmlspecialchars($cv['cv_address']);?>" disabled>
                     <br />
                     <button id="editCvButton" type="button" class="inversedButton">Éditer</button>
@@ -83,8 +90,8 @@
                         foreach ($exps as $exp) {
                     ?>
                             <div class="experienceDiv">
-                                <div style="position:relative;"><a href="account.php?action=delete&id=<?= urlencode($exp['exp_id']); ?>" class="deleteExperienceOrTraining">&times;</a><i class="fa fa-pencil"></i></div>
-                                <br />
+                                <div style="position:relative;"><a href="account.php?action=delete&id=<?= urlencode($exp['exp_id']); ?>" class="deleteExperienceOrTraining">&times;</a><a href="" class="fa fa-pencil"></a></div>
+                                <br /><br />
                                 <h3 class="experienceTitle"><?= htmlspecialchars($exp['exp_title']); ?></h3>
                                 <p class="experienceDateLine">Du <?= $exp['exp_begin_date']; ?> au <?= $exp['exp_end_date']; ?></p>
                                 <p class="experienceContent"><?= htmlspecialchars($exp['exp_content']); ?></p>
@@ -92,7 +99,7 @@
                     <?php
                         }
                     ?>
-                    <button id="addExpButton">Ajouter une expérience</button>
+                    <button id="addExpButton"><p class="addExpPlus">+</p><br/><p class='addExpTxt'>Ajouter une expérience</p></button>
                 </div>
 
 

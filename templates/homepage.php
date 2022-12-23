@@ -52,7 +52,6 @@
                 <p id="closeCross">&times;</p>
                 <p>Créez un compte rapidement et <span style="color:rgb(68, 3, 189); font-weight:bold;">gratuitement</span> pour postuler à une offre d\'emploi ou en publier une !</p>
                 <button id="connexionButton">Connexion</button><button id="subscribeButton">Inscription</button>
-                <div id="connexionSeparator"></div>
                 </div>';
             }
             ?>
@@ -68,7 +67,7 @@
                 <option value="informatique">Administratif</option>
                 <option value="informatique">Graphisme</option>
             </select>
-            <label for="searchFilter2" class="labelCv" style="left:50.2%;">Location</label>
+            <label for="searchFilter2" class="labelCv" style="left:50.2%;">Localité</label>
             <input type="select" name="searchFilter2" placeholder="Filtrer la recherche" class="inputBgColorBlue inputFilter">
             <input type="submit" class="inversedButton inputButton" value="Chercher">
 

@@ -11,6 +11,12 @@
         switch($_POST['type']){
             case "saveCv":
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                if($_POST['cv_driving_licence']=="Oui") {
+                    $_POST['cv_driving_licence'] = 1;
+                }
+                else {
+                    $_POST['cv_driving_licence'] = 0;
+                }
                 $data = [
                     'user_Id' => $_SESSION['usersId'],
                     'cv_first_name' => $_POST['cv_first_name'],

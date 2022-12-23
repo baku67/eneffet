@@ -1,6 +1,7 @@
 Remove experience/Modify
 Quand clique sur modifier (experience), faire pop le form pré-remplis (là ou pop le form addExp)
 
+Modal homemade (comfirmation suppression experience)
 
 Options/select/checkbox front du form CV (permis, etc...)
 Controles front forms (avec flash) et controles back et encodage

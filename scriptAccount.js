@@ -4,7 +4,10 @@ window.onload = function() {
     let cvLastName = document.getElementById('cvLastName').getAttribute("value");
     let cvTel = document.getElementById('cvTel').getAttribute("value");
     let cvEmail = document.getElementById('cvEmail').getAttribute("value");
-    let cvDrivingLicence = document.getElementById('cvDrivingLicence').getAttribute("value");
+    // Options:
+    let cvDrivingLicence = document.getElementById('cvDrivingLicence');
+    let cvDrivingLicenceText = cvDrivingLicence.options[cvDrivingLicence.selectedIndex].text;
+    //
     let cvAddress = document.getElementById('cvAddress').getAttribute("value");
     let cvAge = document.getElementById('cvAge').getAttribute("value");
 
@@ -17,6 +20,9 @@ window.onload = function() {
                 userItem.disabled = false;
                 userItem.style.opacity = "0.9";
             });
+            cvDrivingLicence.disabled = false;
+            cvDrivingLicence.style.opacity = "0.9";
+
 
             const labels = document.querySelectorAll(".labelCv");
             labels.forEach((userItem) => {
@@ -35,6 +41,8 @@ window.onload = function() {
                 userItem.disabled = true;
                 userItem.style.opacity = "0.7";
             });
+            cvDrivingLicence.disabled = true;
+            cvDrivingLicence.style.opacity = "0.7";
 
             const labels = document.querySelectorAll(".labelCv");
             labels.forEach((userItem) => {
@@ -47,7 +55,7 @@ window.onload = function() {
             document.getElementById('cvLastName').value = cvLastName;
             document.getElementById('cvTel').value = cvTel;
             document.getElementById('cvEmail').value = cvEmail;
-            document.getElementById('cvDrivingLicence').value = cvDrivingLicence;
+            document.getElementById('cvDrivingLicence').value = cvDrivingLicenceText;
             document.getElementById('cvAddress').value = cvAddress;
             document.getElementById('cvAge').value = cvAge;
 
@@ -88,7 +96,8 @@ window.onload = function() {
 
     let addExpButton = document.createElement("button");
     addExpButton.id = "addExpButton";
-    addExpButton.innerText = "Ajouter une expérience";
+    addExpButton.innerHTML = "<p class='addExpPlus'>+</p><br/><p class='addExpTxt'>Ajouter une expérience</p>";
+    // addExpButton.innerText = "Ajouter une expérience";
     addExpButton.addEventListener("click", function() {
         document.getElementById('addEventDiv').innerHTML = "";
         document.getElementById('addEventDiv').append(expForm);
