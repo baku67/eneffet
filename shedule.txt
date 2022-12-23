@@ -1,5 +1,20 @@
+Filtre, imagesCV, trigger BDD insert CV on register, form modify exp, add formation, favoris
+
+Lors inscription: choix "demandeur d'emploi", "recruteur"
+
 Remove experience/Modify
 Quand clique sur modifier (experience), faire pop le form pré-remplis (là ou pop le form addExp)
+
+Images CV: https://www.codexworld.com/store-retrieve-image-from-database-mysql-php/
+
+Finir le declencheur BDD (nouvelle ligne CV lors register User)
+https://databasefaqs.com/sql-server-trigger-after-insert/
+
+Filtre recherche d'emploi: juste mettre un WHERE categorie ou WHERE locality = $_POST
+
+Lors register: créer la ligne cv avec l'userID correspondant (db event?)
+
+Voir pour ajouter photo sur serveur et systeme de noms d'image stocké bdd
 
 Modal homemade (comfirmation suppression experience)
 

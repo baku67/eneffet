@@ -7,6 +7,7 @@
         <link href="style.css" rel="stylesheet" />
         <script src="script.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
         <?php include_once 'helpers\session_helper.php'; ?>
         <style>
             html, body {
