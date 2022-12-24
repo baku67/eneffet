@@ -14,15 +14,36 @@
     function getJobsFiltered($filters) {
         $database = dbConnect();
 
-        $statement = $database->prepare(
-            "SELECT id, title, author, date_creation, locality, contract_type, company, exp_years_needed FROM jobs WHERE category = ? AND locality = ?"
-        );
-        $statement->execute([$filters['category'], $filters['locality']]);
+        if (($filters['category'] != "default") && (!empty($filters['locality']))) {
+            $statement = $database->prepare(
+                "SELECT id, title, author, date_creation, locality, contract_type, company, exp_years_needed FROM jobs WHERE category = ? AND locality = ?"
+            );
+            $statement->execute([$filters['category'], $filters['locality']]);
+        }
+        else if (($filters['category'] == "default") && (!empty($filters['locality']))) {
+            $statement = $database->prepare(
+                "SELECT id, title, author, date_creation, locality, contract_type, company, exp_years_needed FROM jobs WHERE locality = ?"
+            );
+            $statement->execute([$filters['locality']]);
+        }
+        else if ((empty($filters['locality'])) && ($filters['category'] != "default")) {
+            $statement = $database->prepare(
+                "SELECT id, title, author, date_creation, locality, contract_type, company, exp_years_needed FROM jobs WHERE category = ?"
+            );
+            $statement->execute([$filters['category']]);
+        }
+        else {
+            $statement = $database->query(
+                "SELECT id, title, author, date_creation, locality, contract_type, company, exp_years_needed FROM jobs ORDER BY date_creation DESC"
+            );
+        }
 
-        // $statement = $database->query(
-        //     'SELECT id, title, author, date_creation, locality, contract_type, company, exp_years_needed FROM jobs WHERE locality = ? AND category = ?'
+        // $statement = $database->prepare(
+        //     "SELECT id, title, author, date_creation, locality, contract_type, company, exp_years_needed FROM jobs WHERE category = ? AND locality = ?"
         // );
-        // $statement->bind_param('ss', $filters[0], $filters[1]);
+        // // $statement->execute([$filters['category'], $filters['locality']]);
+        // $statement->execute(["Tous", $filters['locality']]);
+
 
         $jobsFiltered = [];
 
@@ -52,7 +73,7 @@
             "SELECT id, title, author, date_creation, locality, contract_type, company, exp_years_needed FROM jobs ORDER BY date_creation DESC"
         );
 
-        $jobs = [];
+        $jobsFiltered = [];
 
         while($row = $statement->fetch()) {
             $job = [
@@ -66,9 +87,9 @@
                 'exp_years_needed' => $row['exp_years_needed'],
             ];
 
-            $jobs[] = $job;
+            $jobsFiltered[] = $job;
         }
-        return $jobs;
+        return $jobsFiltered;
     }
 
 

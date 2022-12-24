@@ -62,24 +62,33 @@
             <a href="createjob.php"><button class="inversedButton">Publier une offre d'emploi</button></a>
             <br/>
 
-            <form method="post" action="./controllers/searchList.php">
+            <form method="post" action="searchList.php">
                 <input type="hidden" name="type" value="filterJobList">                
                 <label for="searchFilter1" class="labelCv" style="left:35%;">Catégorie</label>
                 <select name="searchFilter1" placeholder="Filtrer la recherche" class="inputBgColorBlue inputFilter">
                     <option value="default">Tous</option>
                     <option value="informatique">Informatique</option>
-                    <option value="informatique">Aéronautique</option>
-                    <option value="informatique">Administratif</option>
-                    <option value="informatique">Graphisme</option>
+                    <option value="aeronautique">Aéronautique</option>
+                    <option value="administratif">Administratif</option>
+                    <option value="graphisme">Graphisme</option>
                 </select>
                 <label for="searchFilter2" class="labelCv" style="left:50.2%;">Localité</label>
-                <input type="select" name="searchFilter2" placeholder="Filtrer la recherche" class="inputBgColorBlue inputFilter">
+                <input type="text" name="searchFilter2" placeholder="Strasbourg, Lyon,..." class="inputBgColorBlue inputFilter">
                 <input type="submit" class="inversedButton inputButton" value="Chercher">
             </form>
 
             <div id="jobsContainer">
                 <?php
-                foreach($jobs as $job) {
+                if (empty($jobsFiltered)) {
+                ?>
+                    <p>Aucune offre d'emploi ne correspond aux critères de recherche :/</p>
+                <?php
+                }
+                else {
+                ?>
+                    <p><?= count($jobsFiltered); ?> offres disponibles</p>
+                <?php
+                    foreach($jobsFiltered as $job) {
                 ?>
                     <div class="job">
                         <p id="test">Test</p>
@@ -96,6 +105,7 @@
                         </a>
                     </div>
                 <?php
+                    }
                 }
                 ?>
             </div>
