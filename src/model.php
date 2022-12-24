@@ -11,6 +11,38 @@
         }
     }
 
+    function getJobsFiltered($filters) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "SELECT id, title, author, date_creation, locality, contract_type, company, exp_years_needed FROM jobs WHERE category = ? AND locality = ?"
+        );
+        $statement->execute([$filters['category'], $filters['locality']]);
+
+        // $statement = $database->query(
+        //     'SELECT id, title, author, date_creation, locality, contract_type, company, exp_years_needed FROM jobs WHERE locality = ? AND category = ?'
+        // );
+        // $statement->bind_param('ss', $filters[0], $filters[1]);
+
+        $jobsFiltered = [];
+
+        while($row = $statement->fetch()) {
+            $job = [
+                'identifier' => $row['id'],
+                'title' => $row['title'],
+                'author' => $row['author'],
+                'date_creation' => $row['date_creation'],
+                'locality' => $row['locality'],
+                'contract_type' => $row['contract_type'],
+                'company' => $row['company'],
+                'exp_years_needed' => $row['exp_years_needed'],
+            ];
+            $jobsFiltered[] = $job;
+        }
+
+        return $jobsFiltered;
+    }
+
 
     function getJobs() {
 

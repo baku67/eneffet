@@ -4,11 +4,10 @@
     <head>
         <meta charset="utf-8" />
         <title>Eneffet</title>
-        <link href="style.css" rel="stylesheet" />
+        <link href="../style.css" rel="stylesheet" />
         <script src="script.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-        <?php include_once 'helpers\session_helper.php'; ?>
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
         <style>
             html, body {
                 margin: 0;
@@ -20,7 +19,7 @@
 
     <body style="text-align:center;" class="wrap" style="position:relative; overflow:hidden;">
 
-    <img src="./images/5559852.jpg" class="backgroundImage" style="opacity:0.35; position:absolute; left:0; top:0; width:100%; height:100%">
+    <img src="../images/5559852.jpg" class="backgroundImage" style="opacity:0.35; position:absolute; left:0; top:0; width:100%; height:100%">
 
         <div>
             <h1 id="titre"><a href="index.php"> Eneffet</a></h1>
@@ -44,9 +43,6 @@
             }
             ?> </h1>
             
-
-            <?php flash('register') ?>
-            <?php flash('login') ?>
 
             <?php if(!isset($_SESSION['usersName'])){
                 echo '<div id="connexionDiv" style="position:relative;">
@@ -79,7 +75,7 @@
 
             <div id="jobsContainer">
                 <?php
-                foreach($jobs as $job) {
+                foreach($jobsFiltered as $job) {
                 ?>
                     <div class="job">
                         <p id="test">Test</p>
