@@ -71,7 +71,7 @@
                             <label class="labelCv" for="cv_address">Localité:</label>
                             <input class="inputCv" type='text' id="cvAddress" name="cv_address" value="<?= htmlspecialchars($cv['cv_address']);?>" disabled>
                             <br />
-                            <button id="editCvButton" type="button" class="inversedButton">Éditer</button>
+                            <button id="editCvButton" type="button" class="inversedButton2">Éditer</button>
                             <input id="saveCvButton" class="saveCv inversedButton grisedButton" type="submit" value="Sauvegarder" disabled>
                         </form>
                     </div>
@@ -90,6 +90,7 @@
 
                 <div id="addEventDiv">
                     <?php flash('addExpCv'); ?>
+
                     <!-- <button id="addExpButton">Ajouter une expérience</button> -->
                     <!-- <button id="addFormationButton">Ajouter une formation</button> -->
                 </div>
@@ -99,7 +100,7 @@
                         foreach ($exps as $exp) {
                     ?>
                             <div class="experienceDiv">
-                                <div style="position:relative;"><a href="account.php?action=delete&id=<?= urlencode($exp['exp_id']); ?>" class="deleteExperienceOrTraining">&times;</a><a href="" class="fa fa-pencil"></a></div>
+                                <div style="position:relative;"><a href="account.php?action=delete-experience&id=<?= urlencode($exp['exp_id']); ?>" class="deleteExperienceOrTraining">&times;</a><a href="" class="fa fa-pencil"></a></div>
                                 <br /><br />
                                 <h3 class="experienceTitle"><?= htmlspecialchars($exp['exp_title']); ?></h3>
                                 <p class="experienceDateLine">Du <?= $exp['exp_begin_date']; ?> au <?= $exp['exp_end_date']; ?></p>
@@ -117,21 +118,27 @@
 
 
                 <h2 class="titleBg">Formations</h2><br />
+
+                <div id="addTrainingDiv">
+                    <?php flash('addTrainingCv'); ?>
+
+                </div>
+
                 <div id="trainingsWrapper">
                     <?php 
                         foreach ($trainings as $training) {
                     ?>
                             <div class="trainingDiv">
-                                <div style="position:relative;"><p class="deleteExperienceOrTraining">&times;</p><i class="fa fa-pencil"></i></div>
-                                <br />
+                                <div style="position:relative;"><a href="account.php?action=delete-training&id=<?= urlencode($training['training_id']); ?>" class="deleteExperienceOrTraining">&times;</a><i class="fa fa-pencil"></i></div>
+                                <br /><br />
                                 <h3 class="trainingTitle"><?= htmlspecialchars($training['training_title']); ?></h3>
-                                <p class="trainingDateLine">Du <?= $training['training_begin_date']; ?> au <?= $exp['training_end_date']; ?></p>
+                                <p class="trainingDateLine">Du <?= $training['training_begin_date']; ?> au <?= $training['training_end_date']; ?></p>
                                 <p class="trainingContent"><?= htmlspecialchars($training['training_content']); ?></p>
                             </div>
                     <?php
                         }
                     ?>
-                    <button id="addFormationButton">Ajouter une formation</button>
+                    <button id="addTrainingButton"><p class="addTrainingPlus">+</p><br /><p class="addTrainingTxt">Ajouter une formation</button>
                 </div>
 
                 

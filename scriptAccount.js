@@ -30,7 +30,7 @@ window.onload = function() {
             });
     
             document.getElementById('editCvButton').innerText = "Annuler";
-            document.getElementById('editCvButton').classList.remove('inversedButton');
+            document.getElementById('editCvButton').classList.remove('inversedButton2');
             document.getElementById('editCvButton').classList.add('alertButton');
             document.getElementById('saveCvButton').classList.add('grisedButton');
         }
@@ -63,7 +63,7 @@ window.onload = function() {
     
             document.getElementById('editCvButton').innerText = "Éditer";
             document.getElementById('editCvButton').classList.remove('alertButton');
-            document.getElementById('editCvButton').classList.add('inversedButton');
+            document.getElementById('editCvButton').classList.add('inversedButton2');
             document.getElementById('saveCvButton').disabled = true;
             document.getElementById('saveCvButton').classList.add('grisedButton');
         }
@@ -87,22 +87,147 @@ window.onload = function() {
 
     // Bouton "Ajouter une Experience"
 
-    let addFormationButton = document.createElement("button");
-    addFormationButton.id = "addFormationButton";
-    addFormationButton.innerText = "Ajouter une formation";
-    addFormationButton.addEventListener("click", function() {
-        // ajouter le form pour ajout de formation
+    let cancelAddTraining = document.createElement("button");
+    cancelAddTraining.setAttribute("type", "button");
+    cancelAddTraining.setAttribute("id", "cancelAddTraining");
+    cancelAddTraining.classList.add('alertButton');
+    cancelAddTraining.innerText = "Annuler";
+    cancelAddTraining.addEventListener("click", function() {
+        // Remettre les boutons par default
+        document.getElementById('addTrainingDiv').classList.add("fadeOut2");
+        setTimeout(function() {
+            document.getElementById('addTrainingDiv').innerHTML = "";
+            document.getElementById('addTrainingDiv').classList.remove("fadeOut2");
+        }, 500);
     });
 
-    let addExpButton = document.createElement("button");
-    addExpButton.id = "addExpButton";
-    addExpButton.innerHTML = "<p class='addExpPlus'>+</p><br/><p class='addExpTxt'>Ajouter une expérience</p>";
-    // addExpButton.innerText = "Ajouter une expérience";
-    addExpButton.addEventListener("click", function() {
-        document.getElementById('addEventDiv').innerHTML = "";
-        document.getElementById('addEventDiv').append(expForm);
+    let trainingForm = document.createElement("form");
+    trainingForm.setAttribute("id", "trainingForm");
+    trainingForm.setAttribute("method", "post");
+    trainingForm.setAttribute("action", "account.php");
+
+    let trainingInput0 = document.createElement("input");
+    trainingInput0.setAttribute("name", "type");
+    trainingInput0.setAttribute("value", "addTrainingCv");
+    trainingInput0.setAttribute("type", "hidden");
+    // trainingInput0.classList.add("inputCvExp");
+
+    let trainingLabel1 = document.createElement("label");
+    trainingLabel1.setAttribute("for", "trainingContent");
+    trainingLabel1.innerText = "Description";
+    trainingLabel1.classList.add("labelCvExp")
+    let trainingInput1 = document.createElement("textarea");
+    trainingInput1.setAttribute("name", "trainingContent");
+    trainingInput1.setAttribute("type", "text");
+    trainingInput1.setAttribute("rows", "6");
+    trainingInput1.classList.add("inputCvExp");
+
+    let trainingLabel2 = document.createElement("label");
+    trainingLabel2.setAttribute("for", "trainingBeginDate");
+    trainingLabel2.innerText = "Date début:";
+    trainingLabel2.classList.add("labelCvExp")
+    let trainingInput2 = document.createElement("input");
+    trainingInput2.setAttribute("name", "trainingBeginDate");
+    trainingInput2.setAttribute("type", "date");
+    trainingInput2.classList.add("inputCvExp");
+
+    let trainingLabel3 = document.createElement("label");
+    trainingLabel3.setAttribute("for", "trainingEndDate");
+    trainingLabel3.innerText = "Date fin:";
+    trainingLabel3.classList.add("labelCvExp")
+    let trainingInput3 = document.createElement("input");
+    trainingInput3.setAttribute("name", "trainingEndDate");
+    trainingInput3.setAttribute("type", "date");
+    trainingInput3.classList.add("inputCvExp");
+
+    let trainingLabel4 = document.createElement("label");
+    trainingLabel4.setAttribute("for", "trainingTitle");
+    trainingLabel4.innerText = "Titre:";
+    trainingLabel4.classList.add("labelCvExp")
+    let trainingInput4 = document.createElement("input");
+    trainingInput4.setAttribute("name", "trainingTitle");
+    trainingInput4.setAttribute("type", "text");
+    trainingInput4.setAttribute("maxLength", "50");
+    trainingInput4.classList.add("inputCvExp");
+
+    let validateAddTrainingButton = document.createElement("input");
+    validateAddTrainingButton.type = "submit";
+    validateAddTrainingButton.value = "Ajouter";
+    validateAddTrainingButton.classList.add("inversedButton");
+    validateAddTrainingButton.classList.add("inputButton");
+    trainingForm.appendChild(trainingInput0);
+    trainingForm.appendChild(trainingLabel2);
+    trainingForm.appendChild(trainingInput2);
+    trainingForm.appendChild(document.createElement("br"));
+    trainingForm.appendChild(trainingLabel3);
+    trainingForm.appendChild(trainingInput3);
+    trainingForm.appendChild(document.createElement("br"));
+    trainingForm.appendChild(trainingLabel4);
+    trainingForm.appendChild(trainingInput4);
+    trainingForm.appendChild(document.createElement("br"));
+    trainingForm.appendChild(trainingLabel1);
+    trainingForm.appendChild(trainingInput1);
+    trainingForm.appendChild(document.createElement("br"));
+    trainingForm.appendChild(cancelAddTraining);
+    trainingForm.appendChild(validateAddTrainingButton);
+
+
+    // Smooth auto scroll to 'id'
+    function scrollToQuestionNode(id) {
+        const element = document.getElementById(id);
+        element.scrollIntoView({ block: 'end',  behavior: 'smooth' });
+    }
+
+    document.getElementById('addTrainingButton').addEventListener("click", function() {
+        document.getElementById('addTrainingDiv').innerHTML = "";
+        document.getElementById('addTrainingDiv').append(trainingForm);
+        scrollToQuestionNode('addTrainingDiv');
         // document.getElementById('addEventDiv').append(cancelAddExp);
-    });
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // let addExpButton = document.createElement("button");
+    // addExpButton.id = "addExpButton";
+    // addExpButton.innerHTML = "<p class='addExpPlus'>+</p><br/><p class='addExpTxt'>Ajouter une expérience</p>";
+    // // addExpButton.innerText = "Ajouter une expérience";
+    // addExpButton.addEventListener("click", function() {
+    //     document.getElementById('addEventDiv').innerHTML = "";
+    //     document.getElementById('addEventDiv').append(expForm);
+    //     // document.getElementById('addEventDiv').append(cancelAddExp);
+    // });
 
     let cancelAddExp = document.createElement("button");
     cancelAddExp.setAttribute("type", "button");
@@ -110,10 +235,16 @@ window.onload = function() {
     cancelAddExp.classList.add('alertButton');
     cancelAddExp.innerText = "Annuler";
     cancelAddExp.addEventListener("click", function() {
-        // Remettre les boutons par default
-        document.getElementById('addEventDiv').innerHTML = "";
-        // document.getElementById('addEventDiv').append(addExpButton);
-        // document.getElementById('addEventDiv').append(addFormationButton);
+        document.getElementById('addEventDiv').classList.add("fadeOut2");
+        setTimeout(function() {
+            document.getElementById('addEventDiv').innerHTML = "";
+            document.getElementById('addEventDiv').classList.add("minimize");
+            setTimeout(function() {
+                document.getElementById('addEventDiv').classList.remove("minimize");
+                document.getElementById('addEventDiv').classList.remove("fadeOut2");
+                scrollToQuestionNode('experiencesWrapper');
+            }, 300);
+        }, 500);
     });
 
 

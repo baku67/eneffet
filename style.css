@@ -261,6 +261,17 @@ select[disabled] {
     font-size: 1.2em;
 }
 
+.addTrainingPlus {
+    font-size: 7em;
+    margin: 0;
+    /* color: rgb(3, 189, 118); */
+}
+.addTrainingTxt {
+    margin-top: 0;
+    font-size: 1.2em;
+    /* color: rgb(3, 189, 118); */
+}
+
 #addExpButton {
     background-color: #b6d2f1;
     border-top: 5px solid rgb(68, 3, 189);
@@ -270,6 +281,21 @@ select[disabled] {
 }
 #addExpButton:hover {
     background-color: rgb(68, 3, 189);
+    /* font-size: 70%; */
+    font-size: 102%;
+}
+
+#addTrainingButton {
+    background-color: #b6f1da;
+    border-top: 5px solid rgb(3, 189, 118);
+    border-bottom: 5px solid rgb(3, 189, 118);
+    border-right: 1px solid rgb(3, 189, 118);
+    border-left: 1px solid rgb(3, 189, 118);
+    color: rgb(3, 189, 118);
+}
+#addTrainingButton:hover {
+    background-color: rgb(3, 189, 118);
+    color: aliceblue !important;
     /* font-size: 70%; */
     font-size: 102%;
 }
@@ -314,16 +340,24 @@ select[disabled] {
 .experienceContent {
     overflow: hidden;
     max-height: 142px;
+
+    /* Max 7 lignes: */
+    line-height:20px; height:140px;
+
 }
 
 .trainingContent {
     overflow: hidden;
     max-height: 142px;
+
+    /* Max 7 lignes: */
+    line-height:20px; height:140px;
 }
 
 #experiencesWrapper {
     display: inline-flex;
     justify-content: center;
+    width: 90%;
 }
 .experienceDiv {
     border: 1px solid rgb(68, 3, 189);
@@ -343,6 +377,34 @@ select[disabled] {
 .experienceDiv:hover {
     background-color: #ccddfb;
 }
+
+.trainingDiv {
+    border: 1px solid rgb(3, 189, 118);
+    border-top:4px solid rgb(3, 189, 118);
+    border-bottom:4px solid rgb(3, 189, 118);
+    background-color: rgba(182, 241, 218, 0.6);
+    border-radius: 3px;
+    padding: 10px 20px;
+    width: 20%;
+    text-align: center;
+
+    margin: 0 4px;
+    cursor: pointer;
+
+    transition: all 0.5s;
+}
+.trainingDiv:hover {
+    background-color: #b6f1da;
+}
+
+
+#trainingsWrapper {
+    display: inline-flex;
+    justify-content: center;
+
+    width: 95%;
+}
+
 
 #returnArrowButton {
     position:absolute; 
@@ -454,6 +516,19 @@ button:hover {
     border: 2px solid rgb(3, 189, 111);
     color: rgb(3, 189, 111);
     background-color: aliceblue;
+}
+
+.inversedButton2 {
+    border: 2px solid rgb(68, 3, 189);
+    background-color: rgb(68, 3, 189);
+    color: aliceblue;
+
+    transition: all 0.3s;
+}
+.inversedButton2:hover {
+    border: 2px solid rgb(68, 3, 189);
+    color: rgb(68, 3, 189);
+    background-color: #b6d2f1;
 }
 
 h1, h2, h3, h4, button, p {
@@ -599,6 +674,15 @@ h2 {
     to {
         height: 0px;
     }
+}
+
+.fadeOut2 {
+    animation: fadeOut 0.5s forwards ease-out;
+    opacity: 1;
+}
+
+.minimize {
+    animation: minimize 0.3s forwards ease-out;
 }
 
 

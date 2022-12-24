@@ -49,15 +49,39 @@
                 addExpCv($data);
                 break;
 
+            case "addTrainingCv":
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+                $data = [
+                    'user_Id' => $_SESSION['usersId'],
+                    'training_begin_date' => $_POST['trainingBeginDate'],
+                    'training_end_date' => $_POST['trainingEndDate'],
+                    'training_title' => $_POST['trainingTitle'],
+                    'training_content' => $_POST['trainingContent']
+                ];
+
+                if(empty($data['training_begin_date']) || empty($data['training_end_date']) || empty($data['training_title']) || empty($data['training_content'])) {
+                    flash("addTrainingCv", "Veuillez remplir tous les champs");
+                    break;
+                }
+
+                addTrainingCv($data);
+                break;
         }
     }
 
     if (isset($_GET['action']) && $_GET['action'] !== '') {
-        if ($_GET['action'] === 'delete') {
+        if ($_GET['action'] === 'delete-experience') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $expId = $_GET['id'];
         
                 deleteExp($expId);
+            }
+        }
+        else if ($_GET['action'] === 'delete-training') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $trainingId = $_GET['id'];
+        
+                deleteTraining($trainingId);
             }
         }
     };
@@ -77,8 +101,10 @@
         echo "Erreur";
         die;
     }
+
     $cv = getCv($identifier);
     $exps = getExperiences($identifier);
+    $trainings = getTrainings($identifier);
 
 
     require('templates/account.php');

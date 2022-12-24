@@ -61,16 +61,20 @@
 
             <a href="createjob.php"><button class="inversedButton">Publier une offre d'emploi</button></a>
             <br/>
-            <label for="searchFilter1" class="labelCv" style="left:35%;">Catégorie</label>
-            <select name="searchFilter1" placeholder="Filtrer la recherche" class="inputBgColorBlue inputFilter">
-                <option value="informatique">Informatique</option>
-                <option value="informatique">Aéronautique</option>
-                <option value="informatique">Administratif</option>
-                <option value="informatique">Graphisme</option>
-            </select>
-            <label for="searchFilter2" class="labelCv" style="left:50.2%;">Localité</label>
-            <input type="select" name="searchFilter2" placeholder="Filtrer la recherche" class="inputBgColorBlue inputFilter">
-            <input type="submit" class="inversedButton inputButton" value="Chercher">
+
+            <form method="post" action="searchFilter.php">
+                <label for="searchFilter1" class="labelCv" style="left:35%;">Catégorie</label>
+                <select name="searchFilter1" placeholder="Filtrer la recherche" class="inputBgColorBlue inputFilter">
+                    <option value="default">Tous</option>
+                    <option value="informatique">Informatique</option>
+                    <option value="informatique">Aéronautique</option>
+                    <option value="informatique">Administratif</option>
+                    <option value="informatique">Graphisme</option>
+                </select>
+                <label for="searchFilter2" class="labelCv" style="left:50.2%;">Localité</label>
+                <input type="select" name="searchFilter2" placeholder="Filtrer la recherche" class="inputBgColorBlue inputFilter">
+                <input type="submit" class="inversedButton inputButton" value="Chercher">
+            </form>
 
             <div id="jobsContainer">
                 <?php

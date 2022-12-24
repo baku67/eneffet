@@ -71,6 +71,34 @@
         return $exps;
     }
 
+
+    function getTrainings($identifier) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "SELECT id, training_title, training_begin_date, training_end_date, training_content FROM training WHERE user_id = ?"
+        );
+        $statement->execute([$identifier]);
+
+        $trainings = [];
+
+        while($row = $statement->fetch()) {
+            $training = [
+                "training_id" => $row['id'],
+                "training_begin_date" => $row['training_begin_date'],
+                "training_end_date" => $row['training_end_date'],
+                "training_title" => $row['training_title'],
+                "training_content" => $row['training_content']
+            ];
+
+            $trainings[] = $training;
+        } 
+
+        return $trainings;
+    }
+
+
+
     function deleteExp($expId) {
         $database = dbconnect();
 
@@ -81,6 +109,18 @@
     }
 
 
+
+    function deleteTraining($trainingId) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "DELETE FROM training WHERE id = ?"
+        );
+
+        $statement->execute([$trainingId]);
+    }
+
+
     function addExpCv($data) {
         $database = dbConnect();
 
@@ -88,5 +128,14 @@
             "INSERT INTO experience (user_id, exp_begin_date, exp_end_date, exp_title, exp_content) VALUES (?, ?, ?, ?, ?)"
         );
         $statement->execute([$data['user_Id'], $data['exp_begin_date'], $data['exp_end_date'], $data['exp_title'], $data['exp_content']]);
+    }
 
+
+    function addTrainingCv($data) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "INSERT INTO training (user_id, training_begin_date, training_end_date, training_title, training_content) VALUES (?, ?, ?, ?, ?)"
+        );
+        $statement->execute([$data['user_Id'], $data['training_begin_date'], $data['training_end_date'], $data['training_title'], $data['training_content']]);
     }

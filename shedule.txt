@@ -1,5 +1,9 @@
 Filtre, imagesCV, trigger BDD insert CV on register, form modify exp, add formation, favoris
 
+page jobDetail: background, header+Titre avec bandeau et BgImg, carte plus petite avec scroll sur content (no scroll sur la page) ?
+
+Chopper l'id de la card Job avec JS, 
+
 Lors inscription: choix "demandeur d'emploi", "recruteur"
 
 Remove experience/Modify
