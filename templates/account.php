@@ -24,7 +24,7 @@
             ?>
         </div>
 
-        <div id="main" style="background: linear-gradient(129deg, rgba(172,250,255,0.6161827279740021) 0%, rgba(47,71,255,0.6722051369375875) 100%);" >
+        <div id="main" style="background:linear-gradient(129deg, rgba(172,250,255,0.6161827279740021) 0%, rgba(172,250,255,0.6161827279740021) 15%, rgba(47,71,255,0.6722051369375875) 100%);" >
 
             <div id="cvScrollContainer">
                 <h1 class="titleBg">C V</h2>
@@ -100,7 +100,7 @@
                         foreach ($exps as $exp) {
                     ?>
                             <div class="experienceDiv">
-                                <div style="position:relative;"><a href="account.php?action=delete-experience&id=<?= urlencode($exp['exp_id']); ?>" class="deleteExperienceOrTraining">&times;</a><a href="" class="fa fa-pencil"></a></div>
+                                <div style="position:relative;"><a href="account.php?action=delete-experience&id=<?= urlencode($exp['exp_id']); ?>" class="deleteExperienceOrTraining">&times;</a><a href="account.php?action=modifyEvent&type=exp&id=<?= urlencode($exp['exp_id']); ?>" class="fa fa-pencil"></a></div>
                                 <br /><br />
                                 <h3 class="experienceTitle"><?= htmlspecialchars($exp['exp_title']); ?></h3>
                                 <p class="experienceDateLine">Du <?= $exp['exp_begin_date']; ?> au <?= $exp['exp_end_date']; ?></p>

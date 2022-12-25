@@ -1,6 +1,11 @@
+Dans onglet Profil: scroll chiant, mettre plutot des raccourcis au top de la pageNoScroll: Infos+Photo, Experiences/Formations, Personalité, Autres, visibilité/confidentialité
+
+faire le modifyEvent.php
+
 CV: qualités et defauts: 3 qualités, 2 defauts (defauts obligatoires? oui) (nbr d'ajouts libre ?)
     -> input = 1 mot par input et maxLength (pas d'espaces, de specialChar, de /n, pas plus de 30char, etc...) possiblité de mot composé(-) (self-controle etc jsp)
     -> style: petit modules
+    -> pas de qualités affichées tant que defaut = "" (avertir)
 
 
 Filtre, imagesCV, trigger BDD insert CV on register, form modify exp, add formation, favoris

@@ -19,6 +19,7 @@ window.onload = function() {
             inputs.forEach((userItem) => {
                 userItem.disabled = false;
                 userItem.style.opacity = "0.9";
+                userItem.style.border = "2px solid rgba(68, 3, 189, 0.6)";
             });
             cvDrivingLicence.disabled = false;
             cvDrivingLicence.style.opacity = "0.9";
@@ -33,6 +34,7 @@ window.onload = function() {
             document.getElementById('editCvButton').classList.remove('inversedButton2');
             document.getElementById('editCvButton').classList.add('alertButton');
             document.getElementById('saveCvButton').classList.add('grisedButton');
+
         }
         else if (document.getElementById('editCvButton').innerText == "Annuler") 
         {
@@ -40,6 +42,7 @@ window.onload = function() {
             inputs.forEach((userItem) => {
                 userItem.disabled = true;
                 userItem.style.opacity = "0.7";
+                userItem.style.border = "2px solid rgba(68, 3, 189, 0.3)";
             });
             cvDrivingLicence.disabled = true;
             cvDrivingLicence.style.opacity = "0.7";
@@ -97,7 +100,12 @@ window.onload = function() {
         document.getElementById('addTrainingDiv').classList.add("fadeOut2");
         setTimeout(function() {
             document.getElementById('addTrainingDiv').innerHTML = "";
-            document.getElementById('addTrainingDiv').classList.remove("fadeOut2");
+            document.getElementById('addTrainingDiv').classList.add("minimize");
+            setTimeout(function() {
+                document.getElementById('addTrainingDiv').classList.remove("minimize");
+                document.getElementById('addTrainingDiv').classList.remove("fadeOut2");
+                scrollToQuestionNode('trainingsWrapper');
+            }, 300)
         }, 500);
     });
 

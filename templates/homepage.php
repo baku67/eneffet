@@ -66,7 +66,7 @@
                 <input type="hidden" name="type" value="filterJobList">                
                 <label for="searchFilter1" class="labelCv" style="left:35%;">Catégorie</label>
                 <select name="searchFilter1" placeholder="Filtrer la recherche" class="inputBgColorBlue inputFilter">
-                    <option value="default">Tous</option>
+                    <option value="default">Toutes</option>
                     <option value="informatique">Informatique</option>
                     <option value="aeronautique">Aéronautique</option>
                     <option value="administratif">Administratif</option>
@@ -86,7 +86,8 @@
                 }
                 else {
                 ?>
-                    <p><?= count($jobsFiltered); ?> offres disponibles</p>
+                    <p><?= count($jobsFiltered); ?> offres disponibles (<span class="filters"><?= htmlspecialchars($filters[0]) ?></span>, <span class="filters"><?= htmlspecialchars($filters[1]) ?></span>)</p>
+
                 <?php
                     foreach($jobsFiltered as $job) {
                 ?>
