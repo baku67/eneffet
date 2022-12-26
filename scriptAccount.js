@@ -189,14 +189,10 @@ window.onload = function() {
     document.getElementById('addTrainingButton').addEventListener("click", function() {
         document.getElementById('addTrainingDiv').innerHTML = "";
         document.getElementById('addTrainingDiv').append(trainingForm);
+        // document.getElementById('addTrainingDiv').classList.add('fadeIn');
         scrollToQuestionNode('addTrainingDiv');
         // document.getElementById('addEventDiv').append(cancelAddExp);
     })
-
-
-
-
-
 
 
 
@@ -345,5 +341,118 @@ window.onload = function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // var expId = 58;
+
+    // var expIdToPhp = {};
+    // expIdToPhp.value = expId;
+
+    // $.ajax({
+    //   url: "getModifiedExp.php",
+    //   method: "post",
+    //   data: expId,
+    //   success: function(data) {
+    //     $("expModifyForm").title = data[0];
+    //     // etc
+    //   }
+
+    // })
+      
+
+
+
+
+    let personalityForm = document.createElement("form");
+    personalityForm.id = "personalityForm";
+    personalityForm.method = "post";
+    personalityForm.action = "account.php";
+
+    let persoInput0 = document.createElement("input");
+    persoInput0.type = "hidden";
+    persoInput0.name = "type";
+    persoInput0.value = "addPersonality";
+
+    // Custom fleche psuedo elem
+    let selectBox = document.createElement("div");
+    selectBox.id = "selectBox";
+    selectBox.classList.add("select_box");
+    selectBox.style.display = "initial";
+    //fin
+    
+    let persoInput1 = document.createElement("select");
+    persoInput1.setAttribute("name", "personalityType");
+    persoInput1.classList.add("inputTraitType");
+    persoInput1.id = "inputTraitType";
+    // Options Qualité/Defaut
+    let persoType1 = document.createElement("option");
+    persoType1.value = "quality";
+    persoType1.innerText = "Qualité";
+    persoType1.selected = "true";
+    let persoType2 = document.createElement("option");
+    persoType2.value = "default";
+    persoType2.innerText = "Défaut";
+
+    persoInput1.append(persoType1, persoType2);
+    selectBox.append(persoInput1);
+
+    let persoInput2 = document.createElement("input");
+    persoInput2.setAttribute("name", "personalityWord");
+    persoInput2.setAttribute("type", "text");
+    persoInput2.id = "personalityWord";
+    persoInput2.placeholder = "Mots-clés";
+    persoInput2.required = "true";
+    persoInput2.classList.add("inputTraitKeyword");
+
+    let persoInput3 = document.createElement("input");
+    persoInput3.type = "submit";
+    persoInput3.value = "Ajouter";
+    persoInput3.classList.add("inversedButton", "inputButton");
+
+    let cancelButton = document.createElement("button");
+    cancelButton.type = "button";
+    cancelButton.id = "cancelAddTraitButton";
+    cancelButton.classList.add("alertButton");
+    cancelButton.innerText = "Annuler";
+
+
+    // Conception du form
+    personalityForm.append(persoInput0, selectBox, persoInput2, persoInput3, cancelButton);
+
+
+    document.getElementById("personalityFormButton").addEventListener("click", function() {
+        document.getElementById("addPersonalityDiv").innerHTML = "";
+        document.getElementById("addPersonalityDiv").append(personalityForm);
+    });
+
+
+    // Changement de style inputs addTrait
+    persoInput1.addEventListener('input', function (evt) {
+        if (persoType1.selected == true) {
+            document.getElementById("inputTraitType").style.border = "2px solid #37e137";
+            document.getElementById("inputTraitType").style.color = "#37e137";
+
+            document.getElementById("personalityWord").style.border = "2px solid #37e137";
+        }
+        else if (persoType1.selected == false) {
+            document.getElementById("inputTraitType").style.border = "2px solid #bb3c8e";
+            document.getElementById("inputTraitType").style.color = "#bb3c8e";
+
+            document.getElementById("personalityWord").style.border = "2px solid #bb3c8e";
+        }
+    });
 
 }

@@ -98,6 +98,54 @@
     }
 
 
+    function getQualities($identifier) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "SELECT id, personality_type, personality_keyword FROM traits WHERE user_id = ? AND personality_type = 'quality'"
+        );
+
+        $statement->execute([$identifier]);
+
+        $qualities = [];
+
+        while ($row = $statement->fetch()) {
+            $quality = [
+                "traitId" => $row["id"],
+                "traitType" => $row["personality_type"],
+                "traitKeyword" => $row["personality_keyword"]
+            ];
+            $qualities[] = $quality;
+        };
+
+        return $qualities;
+    }
+
+
+    function getDefaults($identifier) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "SELECT id, personality_type, personality_keyword FROM traits WHERE user_id = ? AND personality_type = 'default'"
+        );
+
+        $statement->execute([$identifier]);
+
+        $defaults = [];
+
+        while ($row = $statement->fetch()) {
+            $default = [
+                "traitId" => $row["id"],
+                "traitType" => $row["personality_type"],
+                "traitKeyword" => $row["personality_keyword"]
+            ];
+            $defaults[] = $default;
+        };
+
+        return $defaults;
+    }
+
+
 
     function deleteExp($expId) {
         $database = dbconnect();
@@ -121,6 +169,16 @@
     }
 
 
+    function deleteTrait($traitId) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "DELETE from traits WHERE id = ?"
+        );
+        $statement->execute([$traitId]);
+    }
+
+
     function addExpCv($data) {
         $database = dbConnect();
 
@@ -138,4 +196,14 @@
             "INSERT INTO training (user_id, training_begin_date, training_end_date, training_title, training_content) VALUES (?, ?, ?, ?, ?)"
         );
         $statement->execute([$data['user_Id'], $data['training_begin_date'], $data['training_end_date'], $data['training_title'], $data['training_content']]);
+    }
+
+
+    function addPersonality($data) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "INSERT INTO traits (user_id, personality_type, personality_keyword) VALUES (?, ?, ?)"
+        );
+        $statement->execute([$data['user_Id'], $data['personality_type'], $data['personality_keyword']]);
     }

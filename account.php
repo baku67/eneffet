@@ -66,6 +66,23 @@
 
                 addTrainingCv($data);
                 break;
+
+            case "addPersonality":
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $data = [
+                    'user_Id' => $_SESSION['usersId'],
+                    'personality_type' => $_POST['personalityType'],
+                    'personality_keyword' => $_POST['personalityWord'],
+                ];
+
+                if(empty($data['user_Id']) || empty($data['personality_type']) || empty($data['personality_keyword'])) {
+                    flash("addPersonality", "Veuillez remplir tous les champs");
+                    break;
+                }
+
+                addPersonality($data);
+                break;
         }
     }
 
@@ -82,6 +99,13 @@
                 $trainingId = $_GET['id'];
         
                 deleteTraining($trainingId);
+            }
+        }
+        else if ($_GET['action'] === "deleteTrait") {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $traitId = $_GET['id'];
+        
+                deleteTrait($traitId);
             }
         }
     };
@@ -105,6 +129,10 @@
     $cv = getCv($identifier);
     $exps = getExperiences($identifier);
     $trainings = getTrainings($identifier);
+    $qualities = getQualities($identifier);
+    $defaults = getDefaults($identifier);
+
+    
 
 
     require('templates/account.php');

@@ -51,11 +51,11 @@
 }
 
 .titleBg {
+    color: #c8e5ff;
     background-image: url(images/5559852.jpg);
     padding-top: 27px;
     padding-bottom: 27px;
     margin-top: 65px;
-    color: rgb(68, 3, 189);
     font-family: 'Dosis', sans-serif;
 
     border-bottom-left-radius: 5px;
@@ -203,7 +203,7 @@
     border-radius: 8px;
     opacity: 1;
 
-    transition: all 0.4s;
+    transition: all 0.3s;
 
     /* right:5%;
     top: 10%; */
@@ -242,7 +242,7 @@
 select[disabled] {
     color: rgb(68, 3, 189);
     opacity: 0.7;
-    background: linear-gradient(90deg, rgba(239,239,239,0.3) 0%, rgb(177 206 249) 100%);
+    background: linear-gradient(90deg, rgba(239,239,239,0.3) 0%, rgb(196, 230, 250) 100%);
 }
 
 #changePhotoButton {
@@ -272,12 +272,31 @@ select[disabled] {
     /* color: rgb(3, 189, 118); */
 }
 
+#addTrainingDiv {
+    opacity: 1;
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s forwards ease;
+}
+@keyframes fadeIn{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 #addExpButton {
     background-color: #b6d2f1;
     border-top: 5px solid rgb(68, 3, 189);
     border-bottom: 5px solid rgb(68, 3, 189);
     border-right: 1px solid rgb(68, 3, 189);
     border-left: 1px solid rgb(68, 3, 189);
+
+    /* Pour eviter agrandissement bouton on hover */
+    width: 180px;
 }
 #addExpButton:hover {
     background-color: rgb(68, 3, 189);
@@ -292,6 +311,10 @@ select[disabled] {
     border-right: 1px solid rgb(3, 189, 118);
     border-left: 1px solid rgb(3, 189, 118);
     color: rgb(3, 189, 118);
+
+    /* Pour eviter agrandissement bouton on hover */
+    width: 180px;
+
 }
 #addTrainingButton:hover {
     background-color: rgb(3, 189, 118);
@@ -369,7 +392,7 @@ select[disabled] {
     width: 20%;
     text-align: center;
 
-    margin: 0 4px;
+    margin: 0 10px;
     cursor: pointer;
 
     transition: all 0.5s;
@@ -388,7 +411,7 @@ select[disabled] {
     width: 20%;
     text-align: center;
 
-    margin: 0 4px;
+    margin: 0 10px;
     cursor: pointer;
 
     transition: all 0.5s;
@@ -901,6 +924,18 @@ body {
 
 
 
+  #qualitiesTitle {
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #e1ffed;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  #defaultsTitle {
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #ffe1ee;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  }
 
 
 
@@ -937,3 +972,235 @@ body {
 {
 	background-color: #000000;	
 } */
+
+
+#personalityFormButton {
+    background-color: #b6d2f1;
+}
+#personalityFormButton:hover {
+    background-color: rgb(68, 3, 189);
+}
+
+
+.skillsPersoGrid {  
+    margin: 20px 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.8fr 0.4fr;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "skills personality"
+      "addSkillDiv addPersonalityDiv";
+  }
+  
+  .personality {  
+    margin-bottom: 30px;
+
+    /* background: rgb(0,255,203);
+    background: -moz-linear-gradient(90deg, rgba(0,255,203,0) 20%, rgba(0,255,204,1) 50%, rgba(255,0,67,1) 50%, rgba(255,0,76,0) 80%);
+    background: -webkit-linear-gradient(90deg, rgba(0,255,203,0) 20%, rgba(0,255,204,1) 50%, rgba(255,0,67,1) 50%, rgba(255,0,76,0) 80%);
+    background: linear-gradient(90deg, rgba(0,255,203,0) 20%, rgba(0,255,204,1) 50%, rgba(255,0,67,1) 50%, rgba(255,0,76,0) 80%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffcb",endColorstr="#ff004c",GradientType=1); */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "qualities defaults";
+    grid-area: personality;
+  }
+  
+  .qualities { 
+    grid-area: qualities; 
+    padding: 0px 20px;
+    /* border-right: 2px solid rgba(50, 205, 50, 0.6); */
+    /* border-bottom-right-radius: 15px; */
+    padding-bottom: 20px;
+
+    background: rgb(0,255,203);
+    background: -moz-linear-gradient(270deg, rgba(0,255,203,0.2) 0%, rgba(255,255,255,0) 80%);
+    background: -webkit-linear-gradient(270deg, rgba(0,255,203,0.2) 0%, rgba(255,255,255,0) 80%);
+    background: linear-gradient(270deg, rgba(0,255,203,0.2) 0%, rgba(255,255,255,0) 80%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00ffcb",endColorstr="#ffffff",GradientType=1);
+  }
+  
+  .defaults { 
+    grid-area: defaults; 
+    padding: 0px 20px;
+    /* border-left: 1px solid rgba(189, 3, 105, 0.4); */
+    /* border-bottom-left-radius: 15px; */
+    padding-bottom: 20px;
+
+    background: -moz-linear-gradient(90deg, rgba(255,0,97,0.05) 0%, rgba(255,255,255,0) 80%);
+    background: -webkit-linear-gradient(90deg, rgba(255,0,97,0.05) 0%, rgba(255,255,255,0) 80%);
+    background: linear-gradient(90deg, rgba(255,0,97,0.05) 0%, rgba(255,255,255,0) 80%);
+  }
+
+  #inputTraitType {
+    outline: rgba(0, 0, 0, 0);
+  }
+  
+  .skills {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "skillsTitle skillsLvl";
+    grid-area: skills;
+  }
+  
+  .skillsTitle { grid-area: skillsTitle; }
+  
+  .skillsLvl { grid-area: skillsLvl; }
+  
+  .addSkillDiv { grid-area: addSkillDiv; }
+  
+  .addPersonalityDiv { grid-area: addPersonalityDiv; }
+
+
+
+  .select_box {
+    overflow: hidden;
+    position: relative;
+  }
+  .select_box select {
+    position: relative;
+    z-index: 95;
+  }
+  .select_box:after {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #25de69;
+    position: absolute;
+    top: 30%;
+    right: 24px;
+    content: "";
+    z-index: 100;
+  }
+
+
+
+
+  .qualitiesList {
+    max-height: 350px;
+    min-height: 180px;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .qualitiesList::-webkit-scrollbar {
+    display: none;
+  }
+  .qualityDiv {
+    border-radius: 5px;
+    background-color: rgb(3, 189, 118);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    color: white;
+    padding: 5px 10px;
+
+    max-width: 50%;
+    margin: 5px auto;
+
+    /* delete en absolute: */
+    position: relative;
+    display: inline-flex;
+  }
+  .qualityKeyword {
+    text-align: left;
+    margin-right: 18px;
+    margin-left: 5px;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+  }
+  
+  .defaultsList {
+    max-height: 350px;
+    min-height: 180px;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .defaultsList::-webkit-scrollbar {
+    display: none;
+  }
+  .defaultDiv {
+    border-radius: 5px;
+    background-color: rgb(173, 2, 82);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 5px 10px;
+
+    max-width: 50%;
+    margin: 5px auto;
+
+    /* delete en absolute: */
+    position: relative;
+    display: inline-flex;
+  }
+  .defaultKeyword {
+    text-align: left;
+    margin-right: 18px;
+    margin-left: 5px;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+  }
+
+  .deleteTraitCross {
+    position: relative;
+    text-align: right;
+    top: 2px;
+    margin: auto;
+    font-size: 1.7em;
+    font-weight: bold;
+    opacity: 0.3;
+    transition: all 0.3s;
+  }
+  .deleteTraitCross:hover {
+    opacity: 1;
+  }
+
+
+  .inputTraitKeyword {
+    outline: rgba(0, 0, 0, 0);
+
+    padding: 5px 10px;
+    border: 2px solid #37e137;
+    border-radius: 5px;
+    background-color: #8097fe;
+    color: white;
+    font-family: 'Dosis';
+    font-weight: 900;
+    letter-spacing: 1px;
+    font-size: 1.1em;
+  }
+  .inputTraitType {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #37e137;
+    background-color: #8097fe;
+    margin-right: 20px;
+    color: aliceblue;
+    font-family: 'Dosis';
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #37e137;
+    font-size: 1.1em;
+  }
+  .labelTraitKeyword {
+    font-family: 'Dosis', sans-serif;
+
+  }
+
+  /*  Systeme de var pour switcher entre les 2 */
+  .inputTraitKeyword::placeholder {
+    color: rgba(55, 225, 55, 0.7);
+    font-style: italic;
+  }

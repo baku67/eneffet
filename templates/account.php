@@ -100,6 +100,7 @@
                         foreach ($exps as $exp) {
                     ?>
                             <div class="experienceDiv">
+                                <p class="expId" type="hidden" style="display:none;" ><?= htmlspecialchars($exp['exp_id']); ?></p>
                                 <div style="position:relative;"><a href="account.php?action=delete-experience&id=<?= urlencode($exp['exp_id']); ?>" class="deleteExperienceOrTraining">&times;</a><a href="account.php?action=modifyEvent&type=exp&id=<?= urlencode($exp['exp_id']); ?>" class="fa fa-pencil"></a></div>
                                 <br /><br />
                                 <h3 class="experienceTitle"><?= htmlspecialchars($exp['exp_title']); ?></h3>
@@ -140,6 +141,72 @@
                     ?>
                     <button id="addTrainingButton"><p class="addTrainingPlus">+</p><br /><p class="addTrainingTxt">Ajouter une formation</button>
                 </div>
+
+
+
+                <!-- Separateur -->
+                <br /><br /><br />
+
+
+                <h2 class="titleBg">Compétences / Personalité</h2><br />
+                <!-- Grid 2 colonnes:   
+                    1ere colonne: Compétences
+                    2ème colonne: Grid 2 colonnes :Qualités (cyan/vert?) / Défauts (rouge?) -->
+
+                    <div class="skillsPersoGrid">
+                        <div class="personality">
+                            <div class="qualities">
+                                <h3 id="qualitiesTitle">Qualités</h3>
+                                <div class="qualitiesList">
+                                    <?php
+                                    foreach($qualities as $quality) {
+                                    ?>
+                                        <div class="qualityDiv">
+                                            <p class="qualityKeyword"><?= ucfirst(htmlspecialchars($quality['traitKeyword'])) ?></p><a href="account.php?action=deleteTrait&id=<?= urlencode($quality['traitId']); ?>" class="deleteTraitCross">&times;</a>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="defaults">
+                                <h3 id="defaultsTitle">Défauts</h3>
+                                <div class="defaultsList">
+                                    <?php
+                                    foreach($defaults as $default) {
+                                    ?>
+                                        <div class="defaultDiv">
+                                            <p class="defaultKeyword"><?= ucfirst(htmlspecialchars($default['traitKeyword'])) ?></p><a href="account.php?action=deleteTrait&id=<?= urlencode($default['traitId']); ?>" class="deleteTraitCross">&times;</a>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skills">
+                            
+                            <div class="skillsTitle">
+                                <h3>Compétence</h3>
+                            </div>
+                            <div class="skillsLvl">
+                                <h3>Maîtrise</h3>
+                            </div>
+                        </div>
+                        <div class="addSkillDiv">
+                            
+                        </div>
+                        <div class="addPersonalityDiv" id="addPersonalityDiv">
+                            <!--  Onclick load le form dans la div (et cancel: load le button) -->
+                            <button id="personalityFormButton">Ajouter un trait</button>
+                        </div>
+                    </div>
+
+
+
+
+
+
 
                 
 
