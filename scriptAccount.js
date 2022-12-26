@@ -81,6 +81,12 @@ window.onload = function() {
     });
 
 
+    // document.querySelectorAll(".fadeInSlide").forEach((elem) => {
+    //     setTimeout(function() {
+    //         elem.classList.add("animCvSlideFadeIn");
+    //     }, 1000);
+    // })
+
 
 
 
@@ -128,7 +134,7 @@ window.onload = function() {
     trainingInput1.setAttribute("name", "trainingContent");
     trainingInput1.setAttribute("type", "text");
     trainingInput1.setAttribute("rows", "6");
-    trainingInput1.classList.add("inputCvExp");
+    trainingInput1.classList.add("inputCvTraining");
 
     let trainingLabel2 = document.createElement("label");
     trainingLabel2.setAttribute("for", "trainingBeginDate");
@@ -137,7 +143,7 @@ window.onload = function() {
     let trainingInput2 = document.createElement("input");
     trainingInput2.setAttribute("name", "trainingBeginDate");
     trainingInput2.setAttribute("type", "date");
-    trainingInput2.classList.add("inputCvExp");
+    trainingInput2.classList.add("inputCvTraining");
 
     let trainingLabel3 = document.createElement("label");
     trainingLabel3.setAttribute("for", "trainingEndDate");
@@ -146,7 +152,7 @@ window.onload = function() {
     let trainingInput3 = document.createElement("input");
     trainingInput3.setAttribute("name", "trainingEndDate");
     trainingInput3.setAttribute("type", "date");
-    trainingInput3.classList.add("inputCvExp");
+    trainingInput3.classList.add("inputCvTraining");
 
     let trainingLabel4 = document.createElement("label");
     trainingLabel4.setAttribute("for", "trainingTitle");
@@ -156,7 +162,7 @@ window.onload = function() {
     trainingInput4.setAttribute("name", "trainingTitle");
     trainingInput4.setAttribute("type", "text");
     trainingInput4.setAttribute("maxLength", "50");
-    trainingInput4.classList.add("inputCvExp");
+    trainingInput4.classList.add("inputCvTraining");
 
     let validateAddTrainingButton = document.createElement("input");
     validateAddTrainingButton.type = "submit";

@@ -42,34 +42,48 @@
                         <form action="account.php" method="post">
                             <br /><br />
                             <input type="hidden" name="type" value="saveCv">
-                            <label class="labelCv" for="cv_first_name">Prénom:</label>
-                            <input class="inputCv" type='text' id="cvFirstName" name="cv_first_name" value="<?= ucfirst(htmlspecialchars($cv['cv_first_name']));?>" disabled required>
+                            <div id="firstNameDiv" class="fadeInSlide">
+                                <label class="labelCv" for="cv_first_name">Prénom:</label>
+                                <input class="inputCv" type='text' id="cvFirstName" name="cv_first_name" value="<?= ucfirst(htmlspecialchars($cv['cv_first_name']));?>" disabled required>
+                            </div>
                             <br />
-                            <label class="labelCv" for="cv_last_name">Nom:</label>
-                            <input class="inputCv" type='text' id="cvLastName" name="cv_last_name" value="<?= strtoupper(htmlspecialchars($cv['cv_last_name']));?>" disabled required>
+                            <div id="lastNameDiv" class="fadeInSlide">
+                                <label class="labelCv" for="cv_last_name">Nom:</label>
+                                <input class="inputCv" type='text' id="cvLastName" name="cv_last_name" value="<?= strtoupper(htmlspecialchars($cv['cv_last_name']));?>" disabled required>
+                            </div>
                             <br />
-                            <label class="labelCv" for="cv_tel">Tél:</label>
-                            <input class="inputCv" type='text' id="cvTel" name="cv_tel" value="<?= htmlspecialchars($cv['cv_tel']);?>" disabled>
+                            <div id="telDiv" class="fadeInSlide">
+                                <label class="labelCv" for="cv_tel">Tél:</label>
+                                <input class="inputCv" type='text' id="cvTel" name="cv_tel" value="<?= htmlspecialchars($cv['cv_tel']);?>" disabled>
+                            </div>
                             <br />
-                            <label class="labelCv" for="cv_email">Email:</label>
-                            <input class="inputCv" type='text' id="cvEmail" name="cv_email" value="<?= htmlspecialchars($cv['cv_email']);?>" disabled>
+                            <div id="emaiDiv" class="fadeInSlide">
+                                <label class="labelCv" for="cv_email">Email:</label>
+                                <input class="inputCv" type='text' id="cvEmail" name="cv_email" value="<?= htmlspecialchars($cv['cv_email']);?>" disabled>
+                            </div>
                             <br />
-                            <label class="labelCv" for="cv_driving_licence">Permis B:</label>
-                            <!-- <input class="inputCv" type='text' id="cvDrivingLicence" name="cv_driving_licence" value="<?php if(htmlspecialchars($cv['cv_driving_licence'])==1){
-                                echo "Oui";
-                            }else {
-                                echo "Non";
-                            }?>" disabled> -->
-                            <select class="inputCv" type='text' id="cvDrivingLicence" name="cv_driving_licence" disabled>
-                                <option <?php if(htmlspecialchars($cv['cv_driving_licence'])==1) {echo "selected";}?>>Oui</option>
-                                <option <?php if(htmlspecialchars($cv['cv_driving_licence'])==0) {echo "selected";}?>>Non</option>
-                            </select>
+                            <div id="drivingLicenceDiv" class="fadeInSlide">
+                                <label class="labelCv" for="cv_driving_licence">Permis B:</label>
+                                <!-- <input class="inputCv" type='text' id="cvDrivingLicence" name="cv_driving_licence" value="<?php if(htmlspecialchars($cv['cv_driving_licence'])==1){
+                                    echo "Oui";
+                                }else {
+                                    echo "Non";
+                                }?>" disabled> -->
+                                <select class="inputCv" type='text' id="cvDrivingLicence" name="cv_driving_licence" disabled>
+                                    <option <?php if(htmlspecialchars($cv['cv_driving_licence'])==1) {echo "selected";}?>>Oui</option>
+                                    <option <?php if(htmlspecialchars($cv['cv_driving_licence'])==0) {echo "selected";}?>>Non</option>
+                                </select>
+                            </div>
                             <br />
-                            <label class="labelCv" for="cv_age">Date de naissance:</label>
-                            <input class="inputCv" type='date' id="cvAge" name="cv_age" value="<?= htmlspecialchars($cv['cv_age']);?>" disabled>
+                            <div id="ageDiv" class="fadeInSlide">
+                                <label class="labelCv" for="cv_age">Date de naissance:</label>
+                                <input class="inputCv" type='date' id="cvAge" name="cv_age" value="<?= htmlspecialchars($cv['cv_age']);?>" disabled>
+                            </div>
                             <br />
-                            <label class="labelCv" for="cv_address">Localité:</label>
-                            <input class="inputCv" type='text' id="cvAddress" name="cv_address" value="<?= htmlspecialchars($cv['cv_address']);?>" disabled>
+                            <div id="addressDiv" class="fadeInSlide">
+                                <label class="labelCv" for="cv_address">Localité:</label>
+                                <input class="inputCv" type='text' id="cvAddress" name="cv_address" value="<?= htmlspecialchars($cv['cv_address']);?>" disabled>
+                            </div>
                             <br />
                             <button id="editCvButton" type="button" class="inversedButton2">Éditer</button>
                             <input id="saveCvButton" class="saveCv inversedButton grisedButton" type="submit" value="Sauvegarder" disabled>

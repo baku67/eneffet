@@ -589,6 +589,8 @@ a {
 
 
 .inputCv {
+    outline: transparent;
+
     width: 55%;
     padding: 12px 15px;
     margin: 25px 0;
@@ -601,7 +603,12 @@ a {
     opacity: 0.7;
     font-weight: bold;
 }
+.inputCv:focus {
+    outline: 2px solid rgba(68, 3, 189, 0.7); 
+}
 .inputCvExp {
+    outline: transparent;
+
     width: 35%;
     padding: 12px 15px;
     margin: 25px 0;
@@ -613,6 +620,27 @@ a {
     color: rgb(68, 3, 189);
     opacity: 0.7;
     font-weight: bold;
+}
+.inputCvExp:focus {
+    outline: 2px solid rgba(68, 3, 189, 0.7); 
+}
+.inputCvTraining {
+    outline: transparent;
+
+    width: 35%;
+    padding: 12px 15px;
+    margin: 25px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    color: rgb(9, 143, 92);
+    opacity: 0.7;
+    font-weight: bold;
+}
+.inputCvTraining:focus {
+    outline: 3px solid rgb(3, 212, 132); 
 }
 .labelCv {
     position: absolute;
@@ -643,6 +671,14 @@ a {
     color: rgb(0, 4, 61);
     opacity: 0.7;
     font-weight: bold;
+}
+
+#cancelAddTraitButton {
+    background-color: #798efd;
+}
+#cancelAddTraitButton:hover {
+    background-color: rgb(189, 3, 74);
+    color: aliceblue;
 }
 
 
@@ -1203,4 +1239,123 @@ body {
   .inputTraitKeyword::placeholder {
     color: rgba(55, 225, 55, 0.7);
     font-style: italic;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Resoudre pb: js
+    document.querySelectorAll(".fadeInSlide").forEach((elem) => {
+        setTimeout(function() {
+            elem.classList.add("animCvSlideFadeIn");
+        }, 1000);
+    }) 
+*/
+
+/* .fadeInSlide {
+    opacity: 0;
+    position: relative;
+    right: 80%;
+}
+.animCvSlideFadeIn {
+    animation: fadeSlide 0.7s 0.5s forwards ease;
+}
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        right: 80%;
+    }
+    to {
+        opacity: 1;
+        right: 0%;
+    }
+} */
+
+
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        right: 80%;
+    }
+    to {
+        opacity: 1;
+        right: 0%;
+    }
+}
+  #firstNameDiv {
+    opacity: 0;
+    position: relative;
+    right: 80%;
+    
+    animation: fadeSlide 0.8s 0.1s forwards ease-out;
+  }
+  #lastNameDiv {
+    opacity: 0;
+    position: relative;
+    right: 80%;
+    
+    animation: fadeSlide 0.5s 0.25s forwards ease-out;
+  }
+  #telDiv {
+    opacity: 0;
+    position: relative;
+    right: 80%;
+    
+    animation: fadeSlide 0.5s 0.4s forwards ease-out;
+  }
+  #emaiDiv {
+    opacity: 0;
+    position: relative;
+    right: 80%;
+    
+    animation: fadeSlide 0.5s 0.55s forwards ease-out;
+  }
+  #drivingLicenceDiv {
+    opacity: 0;
+    position: relative;
+    right: 80%;
+    
+    animation: fadeSlide 0.5s 0.7s forwards ease-out;
+  }
+  #ageDiv {
+    opacity: 0;
+    position: relative;
+    right: 80%;
+    
+    animation: fadeSlide 0.5s 0.85s forwards ease-out;
+  }
+  #addressDiv {
+    opacity: 0;
+    position: relative;
+    right: 80%;
+    
+    animation: fadeSlide 0.5s 1s forwards ease-out;
+  }
+
+  #cvPhoto {
+    opacity: 0;
+    animation: fadeIn 0.65s 0.25s forwards ease-out;
+  }
+  #changePhotoButton {
+    opacity: 0;
+    animation: fadeIn 0.65s 0.25s forwards ease-out;
   }
