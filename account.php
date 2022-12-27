@@ -83,6 +83,8 @@
 
                 addPersonality($data);
                 break;
+
+            case "addSkill":
         }
     }
 

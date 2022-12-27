@@ -39,27 +39,30 @@
                     </div>
 
                     <div id="cvFormGrid">
+
+                        <div id="cvGraph"></div>
+
                         <form action="account.php" method="post">
                             <br /><br />
                             <input type="hidden" name="type" value="saveCv">
                             <div id="firstNameDiv" class="fadeInSlide">
                                 <label class="labelCv" for="cv_first_name">Prénom:</label>
-                                <input class="inputCv" type='text' id="cvFirstName" name="cv_first_name" value="<?= ucfirst(htmlspecialchars($cv['cv_first_name']));?>" disabled required>
+                                <input class="inputCv" type='text' id="cvFirstName" name="cv_first_name" value="<?= ucfirst(htmlspecialchars_decode($cv['cv_first_name']));?>" disabled required>
                             </div>
                             <br />
                             <div id="lastNameDiv" class="fadeInSlide">
                                 <label class="labelCv" for="cv_last_name">Nom:</label>
-                                <input class="inputCv" type='text' id="cvLastName" name="cv_last_name" value="<?= strtoupper(htmlspecialchars($cv['cv_last_name']));?>" disabled required>
+                                <input class="inputCv" type='text' id="cvLastName" name="cv_last_name" value="<?= strtoupper(htmlspecialchars_decode($cv['cv_last_name']));?>" disabled required>
                             </div>
                             <br />
                             <div id="telDiv" class="fadeInSlide">
                                 <label class="labelCv" for="cv_tel">Tél:</label>
-                                <input class="inputCv" type='text' id="cvTel" name="cv_tel" value="<?= htmlspecialchars($cv['cv_tel']);?>" disabled>
+                                <input class="inputCv" type='text' id="cvTel" name="cv_tel" value="<?= htmlspecialchars_decode($cv['cv_tel']);?>" disabled>
                             </div>
                             <br />
                             <div id="emaiDiv" class="fadeInSlide">
                                 <label class="labelCv" for="cv_email">Email:</label>
-                                <input class="inputCv" type='text' id="cvEmail" name="cv_email" value="<?= htmlspecialchars($cv['cv_email']);?>" disabled>
+                                <input class="inputCv" type='text' id="cvEmail" name="cv_email" value="<?= htmlspecialchars_decode($cv['cv_email']);?>" disabled>
                             </div>
                             <br />
                             <div id="drivingLicenceDiv" class="fadeInSlide">
@@ -77,12 +80,12 @@
                             <br />
                             <div id="ageDiv" class="fadeInSlide">
                                 <label class="labelCv" for="cv_age">Date de naissance:</label>
-                                <input class="inputCv" type='date' id="cvAge" name="cv_age" value="<?= htmlspecialchars($cv['cv_age']);?>" disabled>
+                                <input class="inputCv" type='date' id="cvAge" name="cv_age" value="<?= htmlspecialchars_decode($cv['cv_age']);?>" disabled>
                             </div>
                             <br />
                             <div id="addressDiv" class="fadeInSlide">
                                 <label class="labelCv" for="cv_address">Localité:</label>
-                                <input class="inputCv" type='text' id="cvAddress" name="cv_address" value="<?= htmlspecialchars($cv['cv_address']);?>" disabled>
+                                <input class="inputCv" type='text' id="cvAddress" name="cv_address" value="<?= htmlspecialchars_decode($cv['cv_address']);?>" disabled>
                             </div>
                             <br />
                             <button id="editCvButton" type="button" class="inversedButton2">Éditer</button>
@@ -114,12 +117,12 @@
                         foreach ($exps as $exp) {
                     ?>
                             <div class="experienceDiv">
-                                <p class="expId" type="hidden" style="display:none;" ><?= htmlspecialchars($exp['exp_id']); ?></p>
+                                <p class="expId" type="hidden" style="display:none;" ><?= $exp['exp_id']; ?></p>
                                 <div style="position:relative;"><a href="account.php?action=delete-experience&id=<?= urlencode($exp['exp_id']); ?>" class="deleteExperienceOrTraining">&times;</a><a href="account.php?action=modifyEvent&type=exp&id=<?= urlencode($exp['exp_id']); ?>" class="fa fa-pencil"></a></div>
                                 <br /><br />
-                                <h3 class="experienceTitle"><?= htmlspecialchars($exp['exp_title']); ?></h3>
+                                <h3 class="experienceTitle"><?= htmlspecialchars_decode($exp['exp_title']); ?></h3>
                                 <p class="experienceDateLine">Du <?= $exp['exp_begin_date']; ?> au <?= $exp['exp_end_date']; ?></p>
-                                <p class="experienceContent"><?= htmlspecialchars($exp['exp_content']); ?></p>
+                                <p class="experienceContent"><?= htmlspecialchars_decode($exp['exp_content']); ?></p>
                             </div>
                     <?php
                         }
@@ -146,9 +149,9 @@
                             <div class="trainingDiv">
                                 <div style="position:relative;"><a href="account.php?action=delete-training&id=<?= urlencode($training['training_id']); ?>" class="deleteExperienceOrTraining">&times;</a><i class="fa fa-pencil"></i></div>
                                 <br /><br />
-                                <h3 class="trainingTitle"><?= htmlspecialchars($training['training_title']); ?></h3>
+                                <h3 class="trainingTitle"><?= htmlspecialchars_decode($training['training_title']); ?></h3>
                                 <p class="trainingDateLine">Du <?= $training['training_begin_date']; ?> au <?= $training['training_end_date']; ?></p>
-                                <p class="trainingContent"><?= htmlspecialchars($training['training_content']); ?></p>
+                                <p class="trainingContent"><?= htmlspecialchars_decode($training['training_content']); ?></p>
                             </div>
                     <?php
                         }
@@ -207,8 +210,9 @@
                                 <h3>Maîtrise</h3>
                             </div>
                         </div>
-                        <div class="addSkillDiv">
-                            
+                        <div class="addSkillDiv" id="addSkillDiv">
+                            <!--  Onclick load le form dans la div (et cancel: load le button) -->
+                            <button id="skillFormButton">Ajouter une compétence</button>
                         </div>
                         <div class="addPersonalityDiv" id="addPersonalityDiv">
                             <!--  Onclick load le form dans la div (et cancel: load le button) -->

@@ -1,6 +1,12 @@
 Regrouper Formations et expériences (apreil mais 1 header)
 Style: Mettre les dates de chaque event en gros/gras au dessus des cards (reliées) sous format mm:aaaa
 
+Champ "organisme de formation" Formations
+
+Champ "Entreprise" Expériences pro
+
+Pour etoiles skill/langue: afficher les 5 étoiles grisées, mettre un input caché dans le form qui obtiendra sa "value" par le JS en fonction de quelle etoile est cliquée;
+Voir pour hover 
 
 Dans onglet Profil: scroll chiant, mettre plutot des raccourcis au top de la pageNoScroll: Infos+Photo, Experiences/Formations, Personalité, Autres, visibilité/confidentialité
  OU ALORS header de chaque section avec un collapse bouton 'v'

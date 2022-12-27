@@ -30,28 +30,28 @@
 
         <div id="main">
             <a href="index.php"><p id="returnArrowButton">&#60;</p></a>
-            <h2>Fiche emploi N°<?= htmlspecialchars($job['identifier']) ?></h2>
+            <h2>Fiche emploi N°<?= $job['identifier'] ?></h2>
 
             <div id="jobDetail">
                 
-                <h3 id="jobDetailTitle"><?= htmlspecialchars($job['title']) ?></h3>
-                <p style="font-style:italic; color:grey; font-size:90%;">Publié le <?= htmlspecialchars($job['date_creation']) ?> par <a href="" style="text-decoration:underline;"><?= htmlspecialchars($job['author']); ?></a></p>
+                <h3 id="jobDetailTitle"><?= htmlspecialchars_decode($job['title']) ?></h3>
+                <p style="font-style:italic; color:grey; font-size:90%;">Publié le <?= $job['date_creation'] ?> par <a href="" style="text-decoration:underline;"><?= htmlspecialchars_decode($job['author']); ?></a></p>
 
-                <p class="leftAlign">Localité: <span class="jobDetailData"><?= ucfirst(htmlspecialchars($job['locality'])) ?></span></p>
+                <p class="leftAlign">Localité: <span class="jobDetailData"><?= ucfirst(htmlspecialchars_decode($job['locality'])) ?></span></p>
 
-                <p class="leftAlign">Entreprise: <span class="jobDetailData"><?= ucfirst(htmlspecialchars($job['company'])) ?></span></p>
+                <p class="leftAlign">Entreprise: <span class="jobDetailData"><?= ucfirst(htmlspecialchars_decode($job['company'])) ?></span></p>
 
-                <p class="leftAlign">Contrat: <span class="jobDetailData"><?= strtoupper(htmlspecialchars($job['contract_type'])) ?></span></p>
+                <p class="leftAlign">Contrat: <span class="jobDetailData"><?= strtoupper(htmlspecialchars_decode($job['contract_type'])) ?></span></p>
 
 
-                <p class="leftAlign">Années d'expérience requises: <span class="jobDetailData"><?= ucfirst(htmlspecialchars($job['exp_years_needed'])) ?></span></p>
+                <p class="leftAlign">Années d'expérience requises: <span class="jobDetailData"><?= ucfirst(htmlspecialchars_decode($job['exp_years_needed'])) ?></span></p>
 
 
                 <p class="leftAlign">Permis B <span class="jobDetailData"><?php if($job['driving_licence'] === 1): echo("requis"); else: echo("non requis"); endif;?></span></p>
 
-                <p class="jobDetailContent">&nbsp;&nbsp;&nbsp;&nbsp;<?= htmlspecialchars($job['content']) ?></p>
+                <p class="jobDetailContent">&nbsp;&nbsp;&nbsp;&nbsp;<?= htmlspecialchars_decode($job['content']) ?></p>
 
-                <p class="rightAlign">Date de début: <span class="jobDetailData"><?= ucfirst(htmlspecialchars($job['start_date'])) ?></span></p>
+                <p class="rightAlign">Date de début: <span class="jobDetailData"><?= ucfirst(htmlspecialchars_decode($job['start_date'])) ?></span></p>
 
 
                 <button class="validateButton">Postuler</button><button>Poser une question</button><button class="alertButton">Ne plus proposer</button>

@@ -86,7 +86,7 @@
                 }
                 else {
                 ?>
-                    <p><?= count($jobsFiltered); ?> offres disponibles (<span class="filters"><?= htmlspecialchars($filters[0]) ?></span>, <span class="filters"><?= htmlspecialchars($filters[1]) ?></span>)</p>
+                    <p><?= count($jobsFiltered); ?> offres disponibles (<span class="filters"><?= htmlspecialchars_decode($filters[0]) ?></span>, <span class="filters"><?= htmlspecialchars_decode($filters[1]) ?></span>)</p>
 
                 <?php
                     foreach($jobsFiltered as $job) {
@@ -94,13 +94,13 @@
                     <div class="job">
                         <p id="test">Test</p>
                         <a href="job.php?id=<?= urlencode($job['identifier']) ?>">
-                            <h4 class="jobPreviewTitle"><?= htmlspecialchars($job['title']) ?></h4>
+                            <h4 class="jobPreviewTitle"><?= htmlspecialchars_decode($job['title']) ?></h4>
                             <p id="date">Publié le <?= $job['date_creation'] ?></p>
 
-                            <p class="jobPreviewLine">Localité &nbsp;<span class="jobPreviewData"><?= ucfirst(htmlspecialchars($job['locality'])) ?></span></p>
-                            <p class="jobPreviewLine">Type &nbsp;<span class="jobPreviewData"><?= strtoupper(htmlspecialchars($job['contract_type'])) ?></span></p>
-                            <p class="jobPreviewLine">Entreprise &nbsp;<span class="jobPreviewData"><?= ucfirst(htmlspecialchars($job['company'])) ?></span></p>
-                            <p class="jobPreviewLine">Experience requise &nbsp;<span class="jobPreviewData"><?= ucfirst(htmlspecialchars($job['exp_years_needed'])) ?></span></p>
+                            <p class="jobPreviewLine">Localité &nbsp;<span class="jobPreviewData"><?= ucfirst(htmlspecialchars_decode($job['locality'])) ?></span></p>
+                            <p class="jobPreviewLine">Type &nbsp;<span class="jobPreviewData"><?= strtoupper(htmlspecialchars_decode($job['contract_type'])) ?></span></p>
+                            <p class="jobPreviewLine">Entreprise &nbsp;<span class="jobPreviewData"><?= ucfirst(htmlspecialchars_decode($job['company'])) ?></span></p>
+                            <p class="jobPreviewLine">Experience requise &nbsp;<span class="jobPreviewData"><?= ucfirst(htmlspecialchars_decode($job['exp_years_needed'])) ?></span></p>
 
                             <!-- <a href="job.php?id=<?= urlencode($job['identifier']) ?>"><button>Voir détail</button></a> -->
                         </a>

@@ -362,26 +362,94 @@ window.onload = function() {
 
 
 
-    // var expId = 58;
 
-    // var expIdToPhp = {};
-    // expIdToPhp.value = expId;
 
-    // $.ajax({
-    //   url: "getModifiedExp.php",
-    //   method: "post",
-    //   data: expId,
-    //   success: function(data) {
-    //     $("expModifyForm").title = data[0];
-    //     // etc
-    //   }
 
-    // })
+
+
+
+
+
+
+
+
+
+    // Formulaire ajout d'une compétence CV
+    let skillForm = document.createElement("form");
+    skillForm.id = "skillForm";
+    skillForm.method = "post";
+    skillForm.action = "account.php";
+
+    let skillInput0 = document.createElement("input");
+    skillInput0.type = "hidden";
+    skillInput0.name = "type";
+    skillInput0.value = "addSkill";
+
+    // Custom fleche psuedo elem
+    let selectBox2 = document.createElement("div");
+    selectBox2.id = "selectBox2";
+    selectBox2.classList.add("select_box");
+    selectBox2.style.display = "initial";
+    //fin
+    
+    let skillInput01 = document.createElement("select");
+    skillInput01.setAttribute("name", "skillType");
+    skillInput01.classList.add("inputSkillType");
+    skillInput01.id = "inputSkillType";
+    // Options Qualité/Defaut
+    let skillType1 = document.createElement("option");
+    skillType1.value = "skill";
+    skillType1.innerText = "Compétence";
+    skillType1.selected = "true";
+    let skillType2 = document.createElement("option");
+    skillType2.value = "language";
+    skillType2.innerText = "Langue";
+
+    skillInput01.append(skillType1, skillType2);
+    selectBox2.append(skillInput01);
+
+    let skillInput1 = document.createElement("input");
+    skillInput1.setAttribute("name", "skillWord");
+    skillInput1.setAttribute("type", "text");
+    skillInput1.id = "skillWord";
+    skillInput1.placeholder = "Compétence";
+    skillInput1.required = "true";
+    skillInput1.classList.add("inputSkillKeyword");
+
+    let skillInput3 = document.createElement("input");
+    skillInput3.type = "submit";
+    skillInput3.value = "Ajouter";
+    skillInput3.classList.add("inversedButton", "inputButton");
+
+    let cancelSkillButton = document.createElement("button");
+    cancelSkillButton.type = "button";
+    cancelSkillButton.id = "cancelAddSkillButton";
+    cancelSkillButton.classList.add("alertButton");
+    cancelSkillButton.innerText = "Annuler";
+
+    skillForm.append(skillInput0, skillInput01, skillInput1, skillInput3, cancelSkillButton);
+
+    // Changement de style inputs addTrait
+    skillInput01.addEventListener('input', function (evt) {
+        if (skillType1.selected == true) {
+            document.getElementById("skillWord").placeholder = "Entrez une compétence";
+        }
+        else if (skillType2.selected == true) {
+            document.getElementById("skillWord").placeholder = "Entrez une langue";
+        }
+    })
+
+
+
+
+
+
+
       
 
 
 
-
+    // Formulaire ajout de Trait de personalité CV
     let personalityForm = document.createElement("form");
     personalityForm.id = "personalityForm";
     personalityForm.method = "post";
@@ -434,15 +502,21 @@ window.onload = function() {
     cancelButton.classList.add("alertButton");
     cancelButton.innerText = "Annuler";
 
-
-    // Conception du form
     personalityForm.append(persoInput0, selectBox, persoInput2, persoInput3, cancelButton);
 
 
+
+    // Bouton de génération de form Skill/Personality
     document.getElementById("personalityFormButton").addEventListener("click", function() {
         document.getElementById("addPersonalityDiv").innerHTML = "";
         document.getElementById("addPersonalityDiv").append(personalityForm);
     });
+
+    document.getElementById("skillFormButton").addEventListener("click", function() {
+        document.getElementById("addSkillDiv").innerHTML = "";
+        document.getElementById("addSkillDiv").append(skillForm);
+    });
+
 
 
     // Changement de style inputs addTrait
@@ -451,13 +525,17 @@ window.onload = function() {
             document.getElementById("inputTraitType").style.border = "2px solid #37e137";
             document.getElementById("inputTraitType").style.color = "#37e137";
 
-            document.getElementById("personalityWord").style.border = "2px solid #37e137";
+            // document.getElementById("personalityWord").style.border = "2px solid #37e137";
+            document.getElementById("personalityWord").style.border = "2px solid rgb(68, 3, 189)";
+
         }
         else if (persoType1.selected == false) {
             document.getElementById("inputTraitType").style.border = "2px solid #bb3c8e";
             document.getElementById("inputTraitType").style.color = "#bb3c8e";
 
-            document.getElementById("personalityWord").style.border = "2px solid #bb3c8e";
+            // document.getElementById("personalityWord").style.border = "2px solid #bb3c8e";
+            document.getElementById("personalityWord").style.border = "2px solid rgb(68, 3, 189)";
+
         }
     });
 
