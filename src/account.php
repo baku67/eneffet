@@ -146,6 +146,53 @@
     }
 
 
+    function getSkills($identifier) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "SELECT skill_word, skill_lvl FROM skills WHERE user_id = ?"
+        );
+        $statement->execute([$identifier]);
+
+        $skills = [];
+
+        while($row = $statement->fetch()) {
+
+            $skill = [
+                "skillWord" => $row['skill_word'],
+                "skillLevel" => $row['skill_lvl']
+            ];
+            $skills[] = $skill;
+        }
+
+        return $skills;
+    }
+
+
+    function getLanguages($identifier) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "SELECT lang_name, lang_lvl FROM languages WHERE user_id = ?"
+        );
+        $statement->execute([$identifier]);
+
+        $languages = [];
+
+        while($row = $statement->fetch()) {
+
+            $lang = [
+                "langWord" => $row['lang_name'],
+                "langLevel" => $row['lang_lvl']
+            ];
+            $languages[] = $lang;
+        }
+
+        return $languages;
+    }
+    
+
+
 
     function deleteExp($expId) {
         $database = dbconnect();
@@ -206,4 +253,23 @@
             "INSERT INTO traits (user_id, personality_type, personality_keyword) VALUES (?, ?, ?)"
         );
         $statement->execute([$data['user_Id'], $data['personality_type'], $data['personality_keyword']]);
+    }
+
+
+    function addSkill($data) {
+        $database = dbConnect();
+
+        if($data['skillType'] == "skill") {
+            $statement = $database->prepare(
+                "INSERT INTO skills (user_id, skill_type, skill_word, skill_lvl) VALUES (?, ?, ?, ?)"
+            );
+        }
+        else if ($data['skillType'] == "language") {
+            $statement = $database->prepare(
+                "INSERT INTO languages (user_id, skill_type, lang_name, lang_lvl) VALUES (?, ?, ?, ?)"
+            );
+        }
+  
+
+        $statement->execute([$data['user_Id'], $data['skillType'], $data['skillWord'], $data['skillLevel']]);
     }

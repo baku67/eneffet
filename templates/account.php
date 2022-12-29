@@ -201,13 +201,55 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- <h3>Compétences</h3> -->
+
                         <div class="skills">
+
                             
                             <div class="skillsTitle">
-                                <h3>Compétence</h3>
+                                <div>
+                                    <h3>Compétences</h3>
+                                    <?php
+                                        foreach($skills as $skill) {
+                                    ?>
+                                        <p><?= $skill['skillWord'] ?></p>
+                                    <?php
+                                        }
+                                    ?>
+                                </div>
+                                <div>
+                                    <h3>Langues</h3>
+                                    <?php
+                                        foreach($languages as $lang) {
+                                    ?>
+                                        <p><?= $lang['langWord'] ?></p>
+                                    <?php
+                                        }
+                                    ?>                                
+                                </div>
                             </div>
                             <div class="skillsLvl">
-                                <h3>Maîtrise</h3>
+                                <div>
+                                    <h3 style="opacity:0;">Maîtrise compétence</h3>
+                                    <?php
+                                        foreach($skills as $skill) {
+                                    ?>
+                                        <p style="font-size:1.5em">Lvl<?= $skill['skillLevel'] ?></p>
+                                    <?php
+                                        }
+                                    ?>
+                                </div>
+                                <div>
+                                    <h3 style="opacity:0;">Maîtrise langue</h3>
+                                    <?php
+                                        foreach($languages as $lang) {
+                                    ?>
+                                        <p style="font-size:1.5em">Lvl<?= $lang['langLevel'] ?></p>
+                                    <?php
+                                        }
+                                    ?>                                
+                                </div>
                             </div>
                         </div>
                         <div class="addSkillDiv" id="addSkillDiv">

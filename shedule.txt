@@ -1,3 +1,5 @@
+Juste mettre un espace séparateur entre skills et lang (meme compartiment, bgColor/borderColor diff)
+
 Regrouper Formations et expériences (apreil mais 1 header)
 Style: Mettre les dates de chaque event en gros/gras au dessus des cards (reliées) sous format mm:aaaa
 

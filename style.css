@@ -3,7 +3,6 @@
 /* Inscription/Connection avec form publication CV (champs BDD) */
 /* Lors inscription: Chercheur d'emploi OU employeur */
 /* Si employeur, possibilité de voir ses offres d'emplois, les modifier, le nbr de clics, les conversations */
-
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Nanum+Myeongjo&display=swap');
 
 .form-message {
@@ -1144,6 +1143,27 @@ body {
       "skillsTitle skillsLvl";
     grid-area: skills;
   }
+
+  .skillsTitle {
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "."
+      "."; 
+    grid-area: skillsTitle; 
+  }
+  .skillsLvl {
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "."
+      "."; 
+    grid-area: skillsLvl; 
+  }
   
   .skillsTitle { grid-area: skillsTitle; }
   
@@ -1447,4 +1467,76 @@ body {
   #changePhotoButton {
     opacity: 0;
     animation: fadeIn 0.65s 0.25s forwards ease-out;
+  }
+
+
+
+
+
+  .rating {
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    font-size: 50px;
+  }
+  
+  .rating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .rating label:last-child {
+    position: static;
+  }
+  
+  .rating label:nth-child(1) {
+    z-index: 5;
+  }
+  
+  .rating label:nth-child(2) {
+    z-index: 4;
+  }
+  
+  .rating label:nth-child(3) {
+    z-index: 3;
+  }
+  
+  .rating label:nth-child(4) {
+    z-index: 2;
+  }
+  
+  .rating label:nth-child(5) {
+    z-index: 1;
+  }
+  
+  .rating label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+  
+  .rating label .icon {
+    float: left;
+    color: transparent;
+  }
+  
+  .rating label:last-child .icon {
+    color: #8dabfd;
+    text-shadow: 0 0 2px rgb(0, 0, 0);
+    border-radius: 5px;
+  }
+  
+  .rating:not(:hover) label input:checked ~ .icon,
+  .rating:hover label:hover input ~ .icon {
+    color: rgb(200, 255, 0);
+  }
+  
+  .rating label input:focus:not(:checked) ~ .icon:last-child {
+    color: #000;
+    text-shadow: 0 0 5px rgb(200, 255, 0);
   }

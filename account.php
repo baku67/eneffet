@@ -85,7 +85,36 @@
                 break;
 
             case "addSkill":
-        }
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+                $data = [
+                    "user_Id" => $_SESSION['usersId'],
+                    "skillType" => $_POST['skillType'],
+                    "skillWord" => $_POST['skillWord'],
+                    "skillLevel" => $_POST['skillLevel']
+                ];
+
+                if (empty($data['user_Id']) || empty($data['skillType']) || empty($data['skillWord']) || empty($data['skillLevel'])) {
+                    flash("addSkill", "Veuillez remplir tous les champs");
+                    break;
+                }
+
+                addSkill($data);
+                break;
+
+                // if($data['skillType']  == 'skill') {
+                //     addSkill($data);
+                //     break;
+                // }
+                // else if ($data['skillType']  == 'language') {
+                //     addLanguage($data);
+                //     break;
+                // }
+                // else {
+                //     break;
+                // }
+                
+            }
     }
 
     if (isset($_GET['action']) && $_GET['action'] !== '') {
@@ -133,6 +162,8 @@
     $trainings = getTrainings($identifier);
     $qualities = getQualities($identifier);
     $defaults = getDefaults($identifier);
+    $skills = getSkills($identifier);
+    $languages = getLanguages($identifier);
 
     
 

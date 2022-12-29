@@ -132,6 +132,7 @@ window.onload = function() {
     trainingLabel1.classList.add("labelCvExp")
     let trainingInput1 = document.createElement("textarea");
     trainingInput1.setAttribute("name", "trainingContent");
+    trainingInput1.required = "true";
     trainingInput1.setAttribute("type", "text");
     trainingInput1.setAttribute("rows", "6");
     trainingInput1.classList.add("inputCvTraining");
@@ -141,6 +142,7 @@ window.onload = function() {
     trainingLabel2.innerText = "Date début:";
     trainingLabel2.classList.add("labelCvExp")
     let trainingInput2 = document.createElement("input");
+    trainingInput2.required = "true";
     trainingInput2.setAttribute("name", "trainingBeginDate");
     trainingInput2.setAttribute("type", "date");
     trainingInput2.classList.add("inputCvTraining");
@@ -151,6 +153,7 @@ window.onload = function() {
     trainingLabel3.classList.add("labelCvExp")
     let trainingInput3 = document.createElement("input");
     trainingInput3.setAttribute("name", "trainingEndDate");
+    trainingInput3.required = "true";
     trainingInput3.setAttribute("type", "date");
     trainingInput3.classList.add("inputCvTraining");
 
@@ -160,6 +163,7 @@ window.onload = function() {
     trainingLabel4.classList.add("labelCvExp")
     let trainingInput4 = document.createElement("input");
     trainingInput4.setAttribute("name", "trainingTitle");
+    trainingInput4.required = "true";
     trainingInput4.setAttribute("type", "text");
     trainingInput4.setAttribute("maxLength", "50");
     trainingInput4.classList.add("inputCvTraining");
@@ -274,6 +278,7 @@ window.onload = function() {
     expLabel1.innerText = "Description";
     expLabel1.classList.add("labelCvExp")
     let expInput1 = document.createElement("textarea");
+    expInput1.required = "true";
     expInput1.setAttribute("name", "expContent");
     expInput1.setAttribute("type", "text");
     expInput1.setAttribute("rows", "6");
@@ -285,6 +290,7 @@ window.onload = function() {
     expLabel2.classList.add("labelCvExp")
     let expInput2 = document.createElement("input");
     expInput2.setAttribute("name", "expBeginDate");
+    expInput2.required = "true";
     expInput2.setAttribute("type", "date");
     expInput2.classList.add("inputCvExp");
 
@@ -293,6 +299,7 @@ window.onload = function() {
     expLabel3.innerText = "Date fin:";
     expLabel3.classList.add("labelCvExp")
     let expInput3 = document.createElement("input");
+    expInput3.required = "true";
     expInput3.setAttribute("name", "expEndDate");
     expInput3.setAttribute("type", "date");
     expInput3.classList.add("inputCvExp");
@@ -303,6 +310,7 @@ window.onload = function() {
     expLabel4.classList.add("labelCvExp")
     let expInput4 = document.createElement("input");
     expInput4.setAttribute("name", "expTitle");
+    expInput4.required = "true";
     expInput4.setAttribute("type", "text");
     expInput4.setAttribute("maxLength", "50");
     expInput4.classList.add("inputCvExp");
@@ -416,6 +424,15 @@ window.onload = function() {
     skillInput1.required = "true";
     skillInput1.classList.add("inputSkillKeyword");
 
+    // input étoiles skillLevel
+    let skillInput2 = document.createElement("div");
+    skillInput2.innerHTML = '<label><input required="true" type="radio" name="skillLevel" value="1" /><span class="icon">★</span></label><label><input type="radio" name="skillLevel" value="2" /><span class="icon">★</span><span class="icon">★</span></label><label><input type="radio" name="skillLevel" value="3" /><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span></label>';
+    skillInput2.classList.add("rating");
+    skillInput2.name = "skillLevel";
+    skillInput2.required = "true";
+    skillInput2.id = "skillInputLevel";
+
+
     let skillInput3 = document.createElement("input");
     skillInput3.type = "submit";
     skillInput3.value = "Ajouter";
@@ -427,7 +444,7 @@ window.onload = function() {
     cancelSkillButton.classList.add("alertButton");
     cancelSkillButton.innerText = "Annuler";
 
-    skillForm.append(skillInput0, skillInput01, skillInput1, skillInput3, cancelSkillButton);
+    skillForm.append(skillInput0, skillInput01, skillInput1, skillInput2, skillInput3, cancelSkillButton);
 
     // Changement de style inputs addTrait
     skillInput01.addEventListener('input', function (evt) {
@@ -441,7 +458,9 @@ window.onload = function() {
 
 
 
-
+    $(':radio').change(function() {
+        console.log('New star rating: ' + this.value);
+      });
 
 
 
