@@ -139,6 +139,20 @@
                 deleteTrait($traitId);
             }
         }
+        else if ($_GET['action'] === "deleteSkill") {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $skillId = $_GET['id'];
+        
+                deleteSkill($skillId);
+            }
+        }
+        else if ($_GET['action'] === "deleteLang") {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $langId = $_GET['id'];
+        
+                deleteLang($langId);
+            }
+        }
     };
 
 

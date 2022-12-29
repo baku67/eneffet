@@ -1,3 +1,5 @@
+Star compétence, apostrophe/stylo a encorte Langues
+
 Juste mettre un espace séparateur entre skills et lang (meme compartiment, bgColor/borderColor diff)
 
 Regrouper Formations et expériences (apreil mais 1 header)

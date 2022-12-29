@@ -207,58 +207,61 @@
                         <div class="skills">
 
                             
-                            <div class="skillsTitle">
-                                <div>
-                                    <h3>Compétences</h3>
+                                <div style="position:relative; display:flex; flex-direction:column; margin-bottom:25px;">
+                                    <h3 id="skillsTitle">Compétences</h3>
                                     <?php
                                         foreach($skills as $skill) {
                                     ?>
-                                        <p><?= $skill['skillWord'] ?></p>
+                                        <p class="skillLine"><span class="skillWord"><a href="account.php?action=deleteSkill&id=<?= urlencode($skill['skillId']); ?>" class="deleteSkillCross">&#10005;</a><span class="skillWord2"><?= $skill['skillWord'] ?></span></span><span class="skillLevel"><?php
+                                            if($skill['skillLevel'] == "1") {
+                                                echo("&#9733;<span style='color:#9b9b9b'>&#9733;&#9733;</span>");
+                                            }
+                                            else if($skill['skillLevel'] == "2") {
+                                                echo("&#9733;&#9733;<span style='color:#9b9b9b'>&#9733;</span>");
+                                            }
+                                            else if ($skill['skillLevel'] == "3") {
+                                                echo("&#9733;&#9733;&#9733;");
+                                            }
+                                        ?>
+                                        </span></p><br />
                                     <?php
                                         }
                                     ?>
+                                    <div id="separatorSkill"></div>
                                 </div>
-                                <div>
-                                    <h3>Langues</h3>
+                                
+
+                                <div style="display:flex; flex-direction:column;">
+                                    <h3 id="langsTitle">Langues</h3>
                                     <?php
                                         foreach($languages as $lang) {
                                     ?>
-                                        <p><?= $lang['langWord'] ?></p>
+                                        <p class="langLine"><span class="langWord"><a href="account.php?action=deleteLang&id=<?= urlencode($lang['langId']); ?>" class="deleteLangCross">&#10005;</a><span class="langWord2"><?= $lang['langWord'] ?></span></span><span class="langLevel"><?php
+                                            if($lang['langLevel'] == "1") {
+                                                echo("&#9733;<span style='color:#9b9b9b'>&#9733;&#9733;</span>");
+                                            }
+                                            else if($lang['langLevel'] == "2") {
+                                                echo("&#9733;&#9733;<span style='color:#9b9b9b'>&#9733;</span>");
+                                            }
+                                            else if ($lang['langLevel'] == "3") {
+                                                echo("&#9733;&#9733;&#9733;");
+                                            }
+                                        ?>
+                                        </span></p><br />
                                     <?php
                                         }
-                                    ?>                                
-                                </div>
-                            </div>
-                            <div class="skillsLvl">
-                                <div>
-                                    <h3 style="opacity:0;">Maîtrise compétence</h3>
-                                    <?php
-                                        foreach($skills as $skill) {
-                                    ?>
-                                        <p style="font-size:1.5em">Lvl<?= $skill['skillLevel'] ?></p>
-                                    <?php
-                                        }
                                     ?>
                                 </div>
-                                <div>
-                                    <h3 style="opacity:0;">Maîtrise langue</h3>
-                                    <?php
-                                        foreach($languages as $lang) {
-                                    ?>
-                                        <p style="font-size:1.5em">Lvl<?= $lang['langLevel'] ?></p>
-                                    <?php
-                                        }
-                                    ?>                                
-                                </div>
-                            </div>
+                                
+
                         </div>
                         <div class="addSkillDiv" id="addSkillDiv">
                             <!--  Onclick load le form dans la div (et cancel: load le button) -->
-                            <button id="skillFormButton">Ajouter une compétence</button>
+                            <button id="skillFormButton">Ajouter un élément</button>
                         </div>
                         <div class="addPersonalityDiv" id="addPersonalityDiv">
                             <!--  Onclick load le form dans la div (et cancel: load le button) -->
-                            <button id="personalityFormButton">Ajouter un trait</button>
+                            <button id="personalityFormButton">Ajouter un élément</button>
                         </div>
                     </div>
 

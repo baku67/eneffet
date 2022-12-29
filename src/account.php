@@ -150,7 +150,7 @@
         $database = dbConnect();
 
         $statement = $database->prepare(
-            "SELECT skill_word, skill_lvl FROM skills WHERE user_id = ?"
+            "SELECT id, skill_word, skill_lvl FROM skills WHERE user_id = ?"
         );
         $statement->execute([$identifier]);
 
@@ -159,6 +159,7 @@
         while($row = $statement->fetch()) {
 
             $skill = [
+                "skillId" => $row['id'],
                 "skillWord" => $row['skill_word'],
                 "skillLevel" => $row['skill_lvl']
             ];
@@ -173,7 +174,7 @@
         $database = dbConnect();
 
         $statement = $database->prepare(
-            "SELECT lang_name, lang_lvl FROM languages WHERE user_id = ?"
+            "SELECT id, lang_name, lang_lvl FROM languages WHERE user_id = ?"
         );
         $statement->execute([$identifier]);
 
@@ -182,6 +183,7 @@
         while($row = $statement->fetch()) {
 
             $lang = [
+                "langId" => $row['id'],
                 "langWord" => $row['lang_name'],
                 "langLevel" => $row['lang_lvl']
             ];
@@ -224,6 +226,30 @@
         );
         $statement->execute([$traitId]);
     }
+
+
+    function deleteSkill($skillId) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "DELETE FROM skills WHERE id = ?"
+        );
+        $statement->execute([$skillId]);
+    }
+
+    function deleteLang($langId) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "DELETE FROM languages WHERE id = ?"
+        );
+        $statement->execute([$langId]);
+    }
+
+
+
+
+
 
 
     function addExpCv($data) {

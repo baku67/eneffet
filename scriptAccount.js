@@ -444,7 +444,7 @@ window.onload = function() {
     cancelSkillButton.classList.add("alertButton");
     cancelSkillButton.innerText = "Annuler";
 
-    skillForm.append(skillInput0, skillInput01, skillInput1, skillInput2, skillInput3, cancelSkillButton);
+    skillForm.append(skillInput0, skillInput01, skillInput1, skillInput2, document.createElement("br"), skillInput3, cancelSkillButton);
 
     // Changement de style inputs addTrait
     skillInput01.addEventListener('input', function (evt) {
@@ -521,7 +521,7 @@ window.onload = function() {
     cancelButton.classList.add("alertButton");
     cancelButton.innerText = "Annuler";
 
-    personalityForm.append(persoInput0, selectBox, persoInput2, persoInput3, cancelButton);
+    personalityForm.append(persoInput0, selectBox, persoInput2, document.createElement("br"), persoInput3, cancelButton);
 
 
 
