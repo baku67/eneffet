@@ -1,3 +1,5 @@
+Rework style inputTrait et input Langue/skills
+
 Event BDD: lors INSERT INTO users, INSERT INTO cv NULL avec userId
 
 Dans uploads: creer folder par userId et intégrer dans les paths

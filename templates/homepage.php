@@ -37,8 +37,8 @@
         <div id="main" style="position:relative;">
 
             <h1 id="titlePage">Bienvenue, <?php if(isset($_SESSION['usersId'])){
-                echo explode(" ", $_SESSION['usersName'])[0];
-                echo $_SESSION['usersId'];
+                echo ucfirst(explode(" ", $_SESSION['usersName'])[0]);
+                echo(" (id: " . $_SESSION['usersId'] . ")");
             }else{
                 echo 'Guest';
             }

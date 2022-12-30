@@ -1436,7 +1436,7 @@ body {
 
     padding: 5px 10px;
     border: 2px solid rgb(68, 3, 189);
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: #8097fe;
     color: white;
     font-family: 'Dosis';
@@ -1446,7 +1446,7 @@ body {
   }
   .inputTraitType {
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 3px;
     border: 2px solid #37e137;
     background-color: #8097fe;
     margin-right: 20px;
@@ -1473,7 +1473,7 @@ body {
 
     padding: 5px 10px;
     border: 2px solid rgb(68, 3, 189);
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: #8097fe;
     color: white;
     font-family: 'Dosis';
@@ -1491,7 +1491,7 @@ body {
     outline: rgba(0, 0, 0, 0);
 
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 3px;
     border: 2px solid rgb(68, 3, 189);
     background-color: #8097fe;
     margin-right: 20px;
@@ -1722,17 +1722,12 @@ body {
   }
   @keyframes animMiseMaxProcColor {
     0% {
-      /* border-color: rgba(239, 59, 46, 1); */
-      /* text-shadow: 0px 0px 10px #00e7fe; */
-      /* font-size: 2.1em; */
     }
     50% {
-      border-color: rgba(253, 0, 0, 0.7);
-      /* text-shadow: 0px 0px #00e7fe; */
-      /* font-size: 1.5em; */
+      /* border-color: rgba(253, 0, 0, 0.7); */
     }
     100% {
-      border-color: rgba(68, 3, 189, 0.3);
+      /* border-color: rgba(68, 3, 189, 0.3); */
     }
   }
 
