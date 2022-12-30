@@ -1,3 +1,5 @@
+Ajouter Gitignore uploads pour dev
+
 Star compétence, apostrophe/stylo a encorte Langues
 
 Juste mettre un espace séparateur entre skills et lang (meme compartiment, bgColor/borderColor diff)

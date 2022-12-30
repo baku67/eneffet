@@ -33,9 +33,12 @@
 
                 <div id="gridCvPhotoContainer">
                     <div id="cvPhotoGrid">
-                        <img src="./cv_photo/bg.jpg" alt="image_cv" id="cvPhoto">
+                        <!-- <?= $cvPhotoPath[0] ?>
+                        <img src="./cv_photo/bg.jpg" alt="image_cv" id="cvPhoto"> -->
+                        <img src="./<?= $cvPhotoPath[0] ?>" alt="image_cv" id="cvPhoto">
                         <br />
                         <button id="changePhotoButton">Changer</button>
+
                     </div>
 
                     <div id="cvFormGrid">
@@ -212,7 +215,7 @@
                                     <?php
                                         foreach($skills as $skill) {
                                     ?>
-                                        <p class="skillLine"><span class="skillWord"><a href="account.php?action=deleteSkill&id=<?= urlencode($skill['skillId']); ?>" class="deleteSkillCross">&#10005;</a><span class="skillWord2"><?= $skill['skillWord'] ?></span></span><span class="skillLevel"><?php
+                                        <p class="skillLine"><span class="skillWord"><a href="account.php?action=deleteSkill&id=<?= urlencode($skill['skillId']); ?>" class="deleteSkillCross">&#10005;</a><span class="skillWord2"><?= ucfirst(htmlspecialchars($skill['skillWord'])) ?></span></span><span class="skillLevel"><?php
                                             if($skill['skillLevel'] == "1") {
                                                 echo("&#9733;<span style='color:#9b9b9b'>&#9733;&#9733;</span>");
                                             }
@@ -236,7 +239,7 @@
                                     <?php
                                         foreach($languages as $lang) {
                                     ?>
-                                        <p class="langLine"><span class="langWord"><a href="account.php?action=deleteLang&id=<?= urlencode($lang['langId']); ?>" class="deleteLangCross">&#10005;</a><span class="langWord2"><?= $lang['langWord'] ?></span></span><span class="langLevel"><?php
+                                        <p class="langLine"><span class="langWord"><a href="account.php?action=deleteLang&id=<?= urlencode($lang['langId']); ?>" class="deleteLangCross">&#10005;</a><span class="langWord2"><?= ucfirst(htmlspecialchars($lang['langWord'])) ?></span></span><span class="langLevel"><?php
                                             if($lang['langLevel'] == "1") {
                                                 echo("&#9733;<span style='color:#9b9b9b'>&#9733;&#9733;</span>");
                                             }

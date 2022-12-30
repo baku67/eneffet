@@ -24,6 +24,30 @@
 
     }
 
+    function addImgPath($data) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "UPDATE cv SET cv_image_path = ? WHERE user_id = ?"
+        );
+
+        $statement->execute([$data['filePath'], $data['userId']]);
+    }
+
+
+    function getPhotoPath($identifier) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "SELECT cv_image_path FROM cv WHERE user_id = ?"
+        );
+        $statement->execute([$identifier]);
+
+        $filePath = $statement->fetch();
+
+        return $filePath;
+    }
+
 
     function getCv($identifier) {
         $database = dbConnect();

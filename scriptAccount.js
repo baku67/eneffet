@@ -565,4 +565,44 @@ window.onload = function() {
         }, 500)
     });
 
+
+
+
+
+
+
+
+
+    // Form image upload
+    let imgUploadForm = document.createElement("form");
+    imgUploadForm.method = "post";
+    imgUploadForm.action = "account.php";
+    imgUploadForm.enctype = "multipart/form-data";
+    imgUploadForm.id = "imgUploadForm";
+    let inputUpload0 = document.createElement("input");
+    inputUpload0.type = "hidden";
+    inputUpload0.name = "type";
+    inputUpload0.value = "uploadImg";
+    let inputUpload1 = document.createElement("input");
+    inputUpload1.type = "file";
+    inputUpload1.name = "fileToUpload";
+    inputUpload1.id = "fileToUpload";
+    let inputUpload2 = document.createElement("input");
+    inputUpload2.type = "submit";
+    inputUpload2.value = "Mettre à jour";
+    inputUpload2.name = "submit";
+    let cancelUploadButton = document.createElement("button");
+    cancelUploadButton.type = "button";
+    cancelUploadButton.id = "cancelUploadButton";
+    cancelUploadButton.innerText = "Annuler";
+    cancelUploadButton.classList.add("alertButton");
+    imgUploadForm.append(inputUpload0, inputUpload1, inputUpload2, cancelUploadButton);
+
+    document.getElementById("changePhotoButton").addEventListener("click", function() {
+        document.getElementById("changePhotoButton").remove();
+        document.getElementById("cvPhotoGrid").append(imgUploadForm);
+    });
+
+
+
 }

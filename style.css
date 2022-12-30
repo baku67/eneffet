@@ -1185,7 +1185,8 @@ body {
     margin: 30px auto;
     width: 50%;
     position: relative;
-    background-color: #21b2ff;
+    background-color: #7721ff;
+    color: aliceblue;
     margin-block-start: 0;
     margin-block-end: 0;
     height: 22px;
@@ -1243,7 +1244,7 @@ body {
   }
   .deleteLangCross {
     position: relative;
-    color: rgb(128 128 128 / 50%);
+    color: rgb(255 255 255 / 50%);
 
     transition: all 0.3s;
   }
@@ -1695,3 +1696,80 @@ body {
     color: #000;
     text-shadow: 0 0 5px gold;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* https://stackoverflow.com/questions/6370690/media-queries-how-to-target-desktop-tablet-and-mobile */
+  @media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
+  @media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ }
+  @media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }
+  @media (min-width:801px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+  @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+  @media (min-width:1281px) { /* hi-res laptops and desktops */ }
+
+
+
+  @media screen and (max-width:801px) and (min-width:100px) {
+    #gridCvPhotoContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.7fr 1.3fr;
+      /* grid-template-areas: "cv photo"; */
+      grid-template-areas: 
+      "photo"
+      "cv";
+    }
+
+    #cvGraph {
+      display: none;
+    }
+
+    #cvPhotoGrid {
+      margin: 5em auto 0 auto;
+    }
+
+    #titre {
+      font-size: 3.5em;
+      padding: 27px 25px;
+    }
+
+    .titleBg {
+      margin-top: 119px;
+    }
+
+    #navList {
+      font-size: 2em;
+      margin-top: 46px;
+    }
+    .navLink {
+      padding: 8px 25px 27px 25px;
+    }
+
+    .labelCv {
+      font-size: 2.2em;
+      margin-top: -23px;
+    }
+    .inputCv {
+      font-size: 2.2em;
+      margin: 35px 0;
+    }
+
+  }
+
+
+
+
+
+
+
