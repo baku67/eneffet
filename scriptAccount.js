@@ -11,10 +11,14 @@ window.onload = function() {
     let cvAddress = document.getElementById('cvAddress').getAttribute("value");
     let cvAge = document.getElementById('cvAge').getAttribute("value");
 
+    var toggleEditCv = false;
+
 
     document.getElementById('editCvButton').addEventListener('click', function() {
         if(document.getElementById('editCvButton').innerText == "Éditer")
         {
+            toggleEditCv = true;
+
             const inputs = document.querySelectorAll(".inputCv");
             inputs.forEach((userItem) => {
                 userItem.disabled = false;
@@ -38,6 +42,8 @@ window.onload = function() {
         }
         else if (document.getElementById('editCvButton').innerText == "Annuler") 
         {
+            toggleEditCv = false;
+
             const inputs = document.querySelectorAll(".inputCv");
             inputs.forEach((userItem) => {
                 userItem.disabled = true;
@@ -566,6 +572,22 @@ window.onload = function() {
     });
 
 
+    document.querySelectorAll(".inputDiv").forEach((elem) => {
+        elem.addEventListener("click", function() {
+            if(toggleEditCv == false) {
+                // Click sur champ alors que disabled
+                elem.lastElementChild.classList.add("shakeInput");
+                document.getElementById("editCvButton").classList.add("shakeEditButton");
+
+                setTimeout(function() {
+                    elem.lastElementChild.classList.remove("shakeInput");
+                    document.getElementById("editCvButton").classList.remove("shakeEditButton");
+                }, 450);
+                
+            }
+        });
+    });
+
 
 
 
@@ -586,6 +608,7 @@ window.onload = function() {
     let inputUpload1 = document.createElement("input");
     inputUpload1.type = "file";
     inputUpload1.name = "fileToUpload";
+    inputUpload1.required = "true";
     inputUpload1.id = "fileToUpload";
     let inputUpload2 = document.createElement("input");
     inputUpload2.type = "submit";

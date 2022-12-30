@@ -33,9 +33,16 @@
 
                 <div id="gridCvPhotoContainer">
                     <div id="cvPhotoGrid">
-                        <!-- <?= $cvPhotoPath[0] ?>
-                        <img src="./cv_photo/bg.jpg" alt="image_cv" id="cvPhoto"> -->
-                        <img src="./<?= $cvPhotoPath[0] ?>" alt="image_cv" id="cvPhoto">
+                        <!-- <img src="./<?= $cvPhotoPath[0] ?>" alt="image_cv" id="cvPhoto"> -->
+                        <img src="./<?php
+                            if ($cvPhotoPath[0] == "") {
+                                echo("uploads/default.jpg");
+                            }
+                            else {
+                                echo($cvPhotoPath[0]);
+                            }
+                        ?>" alt="image_cv" id="cvPhoto">
+
                         <br />
                         <button id="changePhotoButton">Changer</button>
 
@@ -48,27 +55,27 @@
                         <form action="account.php" method="post">
                             <br /><br />
                             <input type="hidden" name="type" value="saveCv">
-                            <div id="firstNameDiv" class="fadeInSlide">
+                            <div id="firstNameDiv" class="fadeInSlide inputDiv">
                                 <label class="labelCv" for="cv_first_name">Prénom:</label>
-                                <input class="inputCv" type='text' id="cvFirstName" name="cv_first_name" value="<?= ucfirst(htmlspecialchars_decode($cv['cv_first_name']));?>" disabled required>
+                                <input class="inputCv" type='text' id="cvFirstName" name="cv_first_name" value="<?= ucfirst(htmlspecialchars_decode($cv['cv_first_name']));?>" placeholder="Entrez votre prénom" disabled required>
                             </div>
                             <br />
-                            <div id="lastNameDiv" class="fadeInSlide">
+                            <div id="lastNameDiv" class="fadeInSlide inputDiv">
                                 <label class="labelCv" for="cv_last_name">Nom:</label>
-                                <input class="inputCv" type='text' id="cvLastName" name="cv_last_name" value="<?= strtoupper(htmlspecialchars_decode($cv['cv_last_name']));?>" disabled required>
+                                <input class="inputCv" type='text' id="cvLastName" name="cv_last_name" value="<?= strtoupper(htmlspecialchars_decode($cv['cv_last_name']));?>" placeholder="Entrez votre nom" disabled required>
                             </div>
                             <br />
-                            <div id="telDiv" class="fadeInSlide">
+                            <div id="telDiv" class="fadeInSlide inputDiv">
                                 <label class="labelCv" for="cv_tel">Tél:</label>
-                                <input class="inputCv" type='text' id="cvTel" name="cv_tel" value="<?= htmlspecialchars_decode($cv['cv_tel']);?>" disabled>
+                                <input class="inputCv" type='text' id="cvTel" name="cv_tel" value="<?= htmlspecialchars_decode($cv['cv_tel']);?>" placeholder="Entrez un numéro de téléphone" disabled>
                             </div>
                             <br />
-                            <div id="emaiDiv" class="fadeInSlide">
+                            <div id="emaiDiv" class="fadeInSlide inputDiv">
                                 <label class="labelCv" for="cv_email">Email:</label>
-                                <input class="inputCv" type='text' id="cvEmail" name="cv_email" value="<?= htmlspecialchars_decode($cv['cv_email']);?>" disabled>
+                                <input class="inputCv" type='text' id="cvEmail" name="cv_email" value="<?= htmlspecialchars_decode($cv['cv_email']);?>" placeholder="Entrez une adresse mail de contact" disabled required>
                             </div>
                             <br />
-                            <div id="drivingLicenceDiv" class="fadeInSlide">
+                            <div id="drivingLicenceDiv" class="fadeInSlide inputDiv">
                                 <label class="labelCv" for="cv_driving_licence">Permis B:</label>
                                 <!-- <input class="inputCv" type='text' id="cvDrivingLicence" name="cv_driving_licence" value="<?php if(htmlspecialchars($cv['cv_driving_licence'])==1){
                                     echo "Oui";
@@ -81,14 +88,14 @@
                                 </select>
                             </div>
                             <br />
-                            <div id="ageDiv" class="fadeInSlide">
+                            <div id="ageDiv" class="fadeInSlide inputDiv">
                                 <label class="labelCv" for="cv_age">Date de naissance:</label>
-                                <input class="inputCv" type='date' id="cvAge" name="cv_age" value="<?= htmlspecialchars_decode($cv['cv_age']);?>" disabled>
+                                <input class="inputCv" type='date' id="cvAge" name="cv_age" value="<?= htmlspecialchars_decode($cv['cv_age']);?>" placeholder="Entrez votre date de naissance" disabled>
                             </div>
                             <br />
-                            <div id="addressDiv" class="fadeInSlide">
+                            <div id="addressDiv" class="fadeInSlide inputDiv">
                                 <label class="labelCv" for="cv_address">Localité:</label>
-                                <input class="inputCv" type='text' id="cvAddress" name="cv_address" value="<?= htmlspecialchars_decode($cv['cv_address']);?>" disabled>
+                                <input class="inputCv" type='text' id="cvAddress" name="cv_address" value="<?= htmlspecialchars_decode($cv['cv_address']);?>" placeholder="Entrez votre localité" disabled>
                             </div>
                             <br />
                             <button id="editCvButton" type="button" class="inversedButton2">Éditer</button>
