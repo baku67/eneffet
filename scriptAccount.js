@@ -558,4 +558,11 @@ window.onload = function() {
         }
     });
 
+    // FadeIn Elem Cards marche pas comme ça sur forEach (utiliser i)
+    document.querySelectorAll(".experienceDiv").forEach((elem) => {
+        setTimeout(function() {
+            elem.classList.add("fadeInElemCv");
+        }, 500)
+    });
+
 }

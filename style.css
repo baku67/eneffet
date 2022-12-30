@@ -424,6 +424,8 @@ select[disabled] {
     width: 90%;
 }
 .experienceDiv {
+    opacity: 0;
+
     border: 1px solid rgb(68, 3, 189);
     border-top:4px solid rgb(68, 3, 189);
     border-bottom:4px solid rgb(68, 3, 189);
@@ -440,6 +442,18 @@ select[disabled] {
 }
 .experienceDiv:hover {
     background-color: #ccddfb;
+}
+
+.fadeInElemCv {
+    animation: fadeInElemCv 0.5s 0s forwards ease-in;
+}
+@keyframes fadeInElemCv {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .trainingDiv {
