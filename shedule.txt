@@ -1,4 +1,8 @@
-Ajouter Gitignore uploads pour dev
+Event BDD: lors INSERT INTO users, INSERT INTO cv NULL avec userId
+
+Dans uploads: creer folder par userId et intégrer dans les paths
+
+Lors upload Img: garder l'ancienne URL pour fallback (suppr) et voire comment delete les anciennnes image
 
 Star compétence, apostrophe/stylo a encorte Langues
 
