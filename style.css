@@ -33,8 +33,17 @@
 
     border-top: 1px solid rgba(240, 248, 255, 0.1);
 }
-.navActive {
-    border-top: 1px solid rgba(240, 248, 255, 0.5);
+.navActiveAccount {
+    border-top: 1px solid rgba(240, 248, 255, 1);
+
+    background-color: #0064e0;
+    color: white;
+}
+.navActiveHomepage {
+  border-top: 1px solid rgba(240, 248, 255, 1);
+
+  background-color: #9fc0ed;
+  color: #00234e;
 }
 
 .saveCv {
@@ -86,8 +95,10 @@
     transition: all 0.4s;
 }
 .navButton:hover {
-    background-color: aliceblue;
-    color:rgb(68, 3, 189);
+    /* background-color: aliceblue; */
+    /* color:rgb(68, 3, 189); */
+    background-color: #0064e0;
+    color: white;
 }
 #decoButton {
     border-top-left-radius: 2px;
@@ -143,6 +154,10 @@
     /* homepage pas concernée car <img> et wrapper (pour gerer l'opacity) */
     /* background: linear-gradient(129deg, rgba(172,250,255,0.6161827279740021) 0%, rgba(47,71,255,0.6722051369375875) 100%); */
 } 
+#mainJobDetail {
+  position: relative;
+  margin-top: 80px;
+}
 
 .inputButton {
     border-radius: 3px;
@@ -153,39 +168,52 @@
 
 .job {
     position:relative; 
-    border:2px solid rgba(68, 3, 189, 0.7); 
+    border:1px solid rgba(68, 3, 189, 0.7); 
+    border-top: 6px solid rgba(68, 3, 189, 1);
     border-radius: 3px; 
     /* padding:10px 20px;  */
-    width:30%; 
+    width:35%; 
     margin: 25px auto;
+    background-color: #b1d5f4;
 
     transition: all 0.3s;
 }
 .job:hover {
-    background-color: rgba(3, 183, 189, 0.1);
-    border:2px solid rgba(3, 136, 189, 0.9); 
+    /* border:1px solid rgba(3, 136, 189, 0.9); 
+    border-top: 6px solid rgba(68, 3, 189, 1); */
+
+    background-color: #cce3f8;
+
 }
 
 #jobDetail {
-    border: 2px solid rgb(68, 3, 189);
+  background-color: #b1d5f4;
+    border: 1px solid rgb(68, 3, 189);
     border-radius: 6px;
 
-    width: 35%;
-    margin: 25px auto;
+    width: 60%;
+    margin: 50px auto;
 }
 #jobDetailTitle {
-    color: aliceblue;
-    background-color: rgb(68, 3, 189);
-    margin-block-start: 0em;
-    padding: 17px 0;
+  /* color: #4403bd;
+  background-color: rgb(161 207 246); */
 
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
+  color: white;
+  background-image: url("./images/5559852.jpg");
+  text-shadow: 1px 1px black;
+
+  font-size: 2em;
+  border-top: 8px solid #4403bd;
+  border-bottom: 1px solid #4403bd;
+  margin-block-start: 0em;
+  padding: 17px 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 #connexionButton {
     background-color: #9ec3ec;
-    transition: all 0.5s;
+    transition: all 0.3s;
     font-weight: bold;
 }
 #connexionButton:hover {
@@ -193,14 +221,15 @@
 }
 #subscribeButton {
     background-color: #9ec3ec;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 #subscribeButton:hover {
     background-color: rgb(68, 3, 189);
 }
 
 #cvPhoto {
-    width: 65%;
+    margin-top: 6em;
+    width: 55%;
     /* height: 35%; */
     border: 2px solid rgba(68, 3, 189, 0.4);
     border-radius: 8px;
@@ -219,6 +248,13 @@
     margin: auto;
     /* top: 10%;
     position: relative; */
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    /* gap: 0px 54px;  */
+    grid-template-areas: 
+      "."
+      ".";
 }
 #cvPhoto:hover {
     /* opacity: 0.9 !important; */
@@ -438,7 +474,7 @@ select[disabled] {
     margin: 0 10px;
     cursor: pointer;
 
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 .experienceDiv:hover {
     background-color: #ccddfb;
@@ -469,7 +505,7 @@ select[disabled] {
     margin: 0 10px;
     cursor: pointer;
 
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 .trainingDiv:hover {
     background-color: #b6f1da;
@@ -499,7 +535,7 @@ select[disabled] {
     position: absolute;
     cursor: pointer;
 
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 #returnArrowButton:hover {
     background-color: rgb(68, 3, 189);
@@ -523,10 +559,11 @@ select[disabled] {
 
 .jobDetailContent {
     margin: 25px 25px;
-    font-weight: 100;
+    /* font-weight: 100; */
     text-align: justify;
+    font-size: 110%;
 
-    font-family: sans-serif;
+    font-family: 'Dosis', sans-serif;
 }
 
 button {
@@ -537,7 +574,7 @@ button {
     font-weight: bold;
     margin: 20px 15px;
 
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 .button2 {
@@ -548,7 +585,7 @@ button {
     font-weight: bold;
     margin: 20px 15px;
 
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 
 .buttonThin {
@@ -582,6 +619,26 @@ button:hover {
     color: aliceblue;
 }
 
+.postulateButton {
+  border: 2px solid rgb(2 128 75);
+  color: rgb(3 139 82);
+  background-color: rgb(236 246 255);
+}
+.postulateButton:hover {
+  border: 2px solid rgb(3, 189, 111);
+  background-color: rgb(3, 189, 111);
+  color: aliceblue;
+}
+
+#askQuestionButton {
+
+  /* background-color: rgb(236 246 255); */
+}
+
+#jobDetailPageTitle {
+  font-family: "Dosis", sans-serif;
+  margin-top: 20px;
+}
 
 .inversedButton {
     border: 2px solid rgb(3, 189, 111);
@@ -741,13 +798,17 @@ a {
 
 
 #titre {
+  background-color: rgba(68, 3, 189, 1);
+  /* background-image: url("./images/5559852.jpg");
+  border-bottom: 1px solid blue;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.6); */
+
     z-index: 20;
     position: fixed;
     top:0;
 
     width: 100%;
     padding: 15px 15px;
-    background-color: rgb(68, 3, 189);
     color: aliceblue;
 
     text-align: left;
@@ -763,7 +824,7 @@ a {
 }
 #titre a {
     padding: 10px 15px;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
 #titre a:hover {
     /* color: rgb(1, 253, 220); */
@@ -835,7 +896,9 @@ h2 {
 
 
 .inputBgColorBlue {
-    background-color: #9fc0ee;
+    /* background-color: #9fc0ee; */
+    background-color: #cce1ff;
+    outline: transparent;
 }
 
 #cvScrollContainer {
@@ -846,7 +909,7 @@ h2 {
 
 #jobsContainer {
     overflow-y:scroll; 
-    height:600px;
+    height:800px;
 
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -906,9 +969,11 @@ body {
     margin-block-start: 0em;
     padding: 15px 0px;
     margin-block-end: 0em;
-    background-color: rgba(68, 3, 189, 1);
-    color: aliceblue;
+    /* background-color: rgba(68, 3, 189, 1); */
+    color: rgba(68, 3, 189, 1);
     font-size: 1.15em;
+
+    border-bottom: 1px solid rgba(68, 3, 189, 1);
 }
 
 .jobPreviewLine {
@@ -923,12 +988,33 @@ body {
 }
 
 
-#test {
+#favStarHomepage {
     position: absolute;
     text-align: right;
-    right: 5px;
+    right: 10px;
+    top: 2px;
+    font-size: 2em;
+    margin-block-start: 0;
+    margin-block-end:0;
     cursor: pointer;
-    color: yellow;
+    color: rgb(251, 255, 4);
+
+}
+#favStarHomepage:hover {
+  content: "\f023";
+}
+
+#resumeInput {
+  width: 65%;
+  height: 175px;
+  /* border: 0px; */
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 5px;
+  outline: transparent;
+  background-color: #a3c6fc;
+  font-size: 1.5em;
+  padding: 7px;
+  margin-top: 25px;
 }
 
 

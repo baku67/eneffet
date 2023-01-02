@@ -17,7 +17,7 @@
             <?php if(isset($_SESSION['usersName'])) {
                 echo '<ul id="navList">
                 <a href="index.php"><li class="navLink navButton">Recherche</li></a>
-                <a href="account.php"><li class="navLink navButton navActive">Profil</li></a>
+                <a href="account.php"><li class="navLink navButton navActiveAccount">Profil</li></a>
                 <a href="./controllers/Users.php?q=logout"><li id="decoButton" class="navLink">Déconnexion</li></a>
                 </ul>';
             }
@@ -33,6 +33,7 @@
 
                 <div id="gridCvPhotoContainer">
                     <div id="cvPhotoGrid">
+                        <div id="cvPhotoContainer">
                         <!-- <img src="./<?= $cvPhotoPath[0] ?>" alt="image_cv" id="cvPhoto"> -->
                         <img src="./<?php
                             if ($cvPhotoPath[0] == "") {
@@ -45,7 +46,15 @@
 
                         <br />
                         <button id="changePhotoButton">Changer</button>
+                        </div>
 
+                        <div>
+                        <br />
+                        <form>
+                            <textarea id="resumeInput" type="text" placeholder="Entrez un résumé..."></textarea>
+                            
+                        </form>
+                        </div>
                     </div>
 
                     <div id="cvFormGrid">
@@ -113,7 +122,7 @@
                 <br />
                 <br />
 
-                <h2 class="titleBg">Expériences</h2><br />
+                <h2 class="titleBg">Expériences / Formations</h2><br />
 
                 <div id="addEventDiv">
                     <?php flash('addExpCv'); ?>
@@ -145,7 +154,8 @@
                 <br /><br /><br />
 
 
-                <h2 class="titleBg">Formations</h2><br />
+                <!-- <h2 class="titleBg">Formations</h2><br /> -->
+                <div style="position:relative; height:1px; background-color:#0068e5; width:15%; text-align:center; margin:0px auto 25px auto"></div>
 
                 <div id="addTrainingDiv">
                     <?php flash('addTrainingCv'); ?>

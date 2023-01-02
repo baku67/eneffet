@@ -619,11 +619,24 @@ window.onload = function() {
     cancelUploadButton.id = "cancelUploadButton";
     cancelUploadButton.innerText = "Annuler";
     cancelUploadButton.classList.add("alertButton");
-    imgUploadForm.append(inputUpload0, inputUpload1, inputUpload2, cancelUploadButton);
+    let changeImgFormButton = document.createElement("button");
+    changeImgFormButton.innerText = "Changer";
+    changeImgFormButton.id = "changePhotoButton";
+    changeImgFormButton.addEventListener("click", function() {
+        document.getElementById("changePhotoButton").remove();
+        document.getElementById("cvPhotoContainer").append(imgUploadForm);
+    });
+    cancelUploadButton.addEventListener("click", function() {
+        // document.getElementById("cvPhotoGrid").replaceChild(imgUploadForm, changeImgFormButton)
+        document.getElementById("imgUploadForm").remove();
+        document.getElementById("cvPhotoContainer").append(changeImgFormButton);
+    });
+
+    imgUploadForm.append(inputUpload0, inputUpload1, document.createElement("br"), inputUpload2, cancelUploadButton);
 
     document.getElementById("changePhotoButton").addEventListener("click", function() {
         document.getElementById("changePhotoButton").remove();
-        document.getElementById("cvPhotoGrid").append(imgUploadForm);
+        document.getElementById("cvPhotoContainer").append(imgUploadForm);
     });
 
 

@@ -8,13 +8,18 @@
         <script src="script.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+        <style>
+            html, body {
+                margin: 0;
+                height: 100%;
+                overflow: hidden
+            }
+        </style>
     </head>
 
-    <body style="text-align:center;">
+    <body style="text-align:center;position:relative; overflow:hidden;">
 
-        <!-- <div class="scrollbar" id="style-8">
-            <div class="force-overflow"></div>
-        </div> -->
+    <img src="./images/5559852.jpg" style="opacity:0.35; position:absolute; left:0; top:0; width:100%; height:100%">
 
         <div>
             <h1 id="titre"><a href="index.php"> Eneffet</a></h1>
@@ -28,9 +33,9 @@
             ?>
         </div>
 
-        <div id="main">
+        <div id="mainJobDetail">
             <a href="index.php"><p id="returnArrowButton">&#60;</p></a>
-            <h2>Fiche emploi N°<?= $job['identifier'] ?></h2>
+            <h2 id="jobDetailPageTitle">Fiche emploi N°<?= $job['identifier'] ?></h2>
 
             <div id="jobDetail">
                 
@@ -54,7 +59,7 @@
                 <p class="rightAlign">Date de début: <span class="jobDetailData"><?= ucfirst(htmlspecialchars_decode($job['start_date'])) ?></span></p>
 
 
-                <button class="validateButton">Postuler</button><button>Poser une question</button><button class="alertButton">Ne plus proposer</button>
+                <button class="postulateButton">Postuler</button><button id="askQuestionButton">Poser une question</button><button class="alertButton">Ne plus proposer</button>
                 <br />
             </div>
 

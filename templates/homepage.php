@@ -26,7 +26,7 @@
             <h1 id="titre"><a href="index.php"> Eneffet</a></h1>
             <?php if(isset($_SESSION['usersName'])) {
                 echo '<ul id="navList">
-                <a href="index.php"><li class="navLink navButton navActive">Recherche</li></a>
+                <a href="index.php"><li class="navLink navButton navActiveHomepage">Recherche</li></a>
                 <a href="account.php"><li class="navLink navButton">Profil</li></a>
                 <a href="./controllers/Users.php?q=logout"><li id="decoButton" class="navLink">Déconnexion</li></a>
                 </ul>';
@@ -92,7 +92,7 @@
                     foreach($jobsFiltered as $job) {
                 ?>
                     <div class="job">
-                        <p id="test">Test</p>
+                        <span id="favStarHomepage">&#x2730;</span>
                         <a href="job.php?id=<?= urlencode($job['identifier']) ?>">
                             <h4 class="jobPreviewTitle"><?= htmlspecialchars_decode($job['title']) ?></h4>
                             <p id="date">Publié le <?= $job['date_creation'] ?></p>
@@ -105,6 +105,7 @@
                             <!-- <a href="job.php?id=<?= urlencode($job['identifier']) ?>"><button>Voir détail</button></a> -->
                         </a>
                     </div>
+                    <p style="color:grey; position:relative; text-align:center; line-height:0;">- - -</p>
                 <?php
                     }
                 }
