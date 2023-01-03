@@ -18,6 +18,7 @@
                     break;
                 }
 
+                createConv($data);
                 sendFirstMsg($data);
 
                 break;
@@ -26,10 +27,9 @@
 
     }
 
+    $identifier = $_SESSION["usersId"];
 
-    // MAIS OUI, quand je clique sur l'onglet il cherche le jobPublisher alors que je veux la list
-    $conv = getConv($_SESSION["usersId"], $data["jobPublisherId"]);
-
+    $convs = getConvs($identifier);
 
 
     require("templates/messages.php");
