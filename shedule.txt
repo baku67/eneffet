@@ -1,5 +1,7 @@
 Rework style inputTrait et input Langue/skills
 
+Changer les background color des cards jobList en fonction d'un truc (catégorie, niv requis, type, ?)
+
 Logo company sur cards jobs
 
 symbole deco au lieu du mot 

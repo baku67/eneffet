@@ -6,6 +6,7 @@
         <title>Eneffet</title>
         <link href="style.css" rel="stylesheet" />
         <script src="script.js"></script>
+        <script src="scriptJobDetail.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
         <style>
@@ -27,6 +28,7 @@
                     echo '<ul id="navList">
                     <a href="index.php"><li class="navLink navButton navActive">Recherche</li></a>
                     <a href="account.php"><li class="navLink navButton">Profil</li></a>
+                    <a href="messages.php"><li class="navLink navButton">Courrier</li></a>
                     <a href="./controllers/Users.php?q=logout"><li id="decoButton" class="navLink">Déconnexion</li></a>
                     </ul>';
             }
@@ -40,6 +42,12 @@
             <div id="jobDetail">
                 
                 <h3 id="jobDetailTitle"><?= htmlspecialchars_decode($job['title']) ?></h3>
+                <script>
+                    var jobId = <?= ($job['identifier']); ?>
+                    // TEST avec id=11 en dur car pas de publisher pour l'instant:
+                    // Ce publisherId est envoyé dans le form messages (scriptJobDetail)
+                    var publisherId = <?= ($job['publisherId']); ?>
+                </script>
                 <p style="font-style:italic; color:grey; font-size:90%;">Publié le <?= $job['date_creation'] ?> par <a href="" style="text-decoration:underline;"><?= htmlspecialchars_decode($job['author']); ?></a></p>
 
                 <p class="leftAlign">Localité: <span class="jobDetailData"><?= ucfirst(htmlspecialchars_decode($job['locality'])) ?></span></p>
@@ -64,7 +72,7 @@
             </div>
 
 
-            <a href="index.php"><button class="buttonThin">Retour à la liste d'emploi</button></a>
+            <a href="index.php" id="backButton"><button class="buttonThin">Retour à la liste d'emploi</button></a>
         </div>
 
     </body>

@@ -169,7 +169,7 @@
 .job {
     position:relative; 
     border:1px solid rgba(68, 3, 189, 0.7); 
-    border-top: 6px solid rgba(68, 3, 189, 1);
+    border-top: 5px solid rgba(68, 3, 189, 1);
     border-radius: 3px; 
     /* padding:10px 20px;  */
     width:35%; 
@@ -203,7 +203,7 @@
   text-shadow: 1px 1px black;
 
   font-size: 2em;
-  border-top: 8px solid #4403bd;
+  border-top: 6px solid #4403bd;
   border-bottom: 1px solid #4403bd;
   margin-block-start: 0em;
   padding: 17px 0;
@@ -966,11 +966,14 @@ body {
 
 
 .jobPreviewTitle {
+    background-image: url(./images/5559852.jpg);
+    color: white;
+    text-shadow: 1px 1px black;
+
+    /* color: rgba(68, 3, 189, 1); */
     margin-block-start: 0em;
     padding: 15px 0px;
     margin-block-end: 0em;
-    /* background-color: rgba(68, 3, 189, 1); */
-    color: rgba(68, 3, 189, 1);
     font-size: 1.15em;
 
     border-bottom: 1px solid rgba(68, 3, 189, 1);

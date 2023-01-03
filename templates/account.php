@@ -18,6 +18,7 @@
                 echo '<ul id="navList">
                 <a href="index.php"><li class="navLink navButton">Recherche</li></a>
                 <a href="account.php"><li class="navLink navButton navActiveAccount">Profil</li></a>
+                <a href="messages.php"><li class="navLink navButton">Courrier</li></a>
                 <a href="./controllers/Users.php?q=logout"><li id="decoButton" class="navLink">Déconnexion</li></a>
                 </ul>';
             }
