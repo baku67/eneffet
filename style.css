@@ -146,15 +146,90 @@
     font-size: 1.6em !important;
 }
 
+#mainConv {
+  margin-top:120px;
+  position: relative;
+
+
+}
+#conv {
+  position: relative;
+  overflow-y: scroll;
+  height: 800px;
+}
+#conv::-webkit-scrollbar {
+  /* Quoique */
+  display: none;
+}
+
+.msgBubbleText {
+  padding: 10px 10px;
+  font-size: 1.7em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  text-align: left;
+}
+
+.msgBubble {
+  position: relative;
+  width: fit-content;
+  max-width: 60%;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #00ffc4;
+  padding: 10px 10px;
+  margin: 20px 20px;
+}
+.contact {
+  /* position: absolute; */
+  /* right: 5%; */
+  /* float: right; */
+
+  background-color: #0c3dad;
+  color: white;
+  position: relative;
+  /* Pansement */
+  left: 43%;
+  text-align: right;
+}
+.user {
+  left:5%;
+}
+
+
+#messageTextInput {
+  outline: transparent;
+  position: relative;
+  border: 1px solid #0c3dad;
+  border-radius: 6px;
+  padding: 8px 8px;
+  opacity: 0.7;
+  width: 55%;
+  font-size: 1.7em;
+
+  transition: all 0.3s;
+}
+#messageTextInput:hover {
+  opacity: 0.85;
+}
+#messageTextInput:focus {
+  opacity: 1;
+  width: 60%;
+}
+
+
+
+
 #mainCourrier {
   margin-top:80px;
 }
 .convDiv {
   position: relative;
-  width: 50%;
+  width: 35%;
   padding: 15px 15px;
   margin: 20px auto;
   text-align: justify;
+  overflow: hidden;
 
   border: 2px solid rgba(68, 3, 189, 0.5);
   border-radius: 5px;
@@ -169,7 +244,9 @@
 }
 .convDiv p {
   margin-block-start: 0;
-  margin-block-end: 0
+  margin-block-end: 0;
+
+  overflow: hidden;
 }
 
 

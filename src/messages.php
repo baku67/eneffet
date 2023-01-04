@@ -12,6 +12,7 @@
     }
 
 
+
     function createConv($data) {
         $database = dbConnect();
 
@@ -52,6 +53,11 @@
 
 
 
+
+
+
+
+
     function getConvs($identifier) {
         $database = dbConnect();
 
@@ -76,29 +82,45 @@
     }
 
 
-    // Pour avoir une liste des conv il faut une table intermédiaire ?
-    // OU Selectionner MAX=1 WHERE user_id et publisher_id (?,?)
-    function getConv($identifier, $jobPublisherId) {
+
+
+    function convDetail($convId) {
         $database = dbConnect();
 
         $statement = $database->prepare(
-            "SELECT message FROM messages WHERE user_id = ? AND publisher_id = ?"
+            "SELECT user_id, message FROM messages WHERE conv_id = ?"
         );
+        $statement->execute([$convId]);
 
-        $statement->execute([$identifier, $jobPublisherId]);
-
-        $conv = [];
+        $messagesConv = [];
 
         while($row = $statement->fetch()) {
-            $message = [
-                "userId" => $row["user_id"],
+            $msg = [
+                "senderId" => $row["user_id"],
                 "message" => $row["message"]
             ];
+            $messagesConv[] = $msg;
+        }
 
-            $conv[] = $message;
-
-        };
-        return $conv;
+        return $messagesConv;
+    }
 
 
+
+    function sendMessage($data) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "INSERT INTO messages (conv_id, user_id, message) VALUES (?, ?, ?)"
+        );
+        $statement->execute([$data["convId"], $data["userId"], $data["message"]]);
+    }
+
+    function setLastMessage($data) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "UPDATE convs SET last_message = ? WHERE conv_id = ?"
+        );
+        $statement->execute([$data["message"], $data["convId"]]);
     }

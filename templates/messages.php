@@ -48,8 +48,9 @@
                 }
                 foreach($convs as $conv) {
                 ?>
-                    <a href="messages.php?action=convdetail&id=<?= urlencode($conv['convId']); ?>">
+                    <a href="convdetail.php?action=convdetail&id=<?= urlencode($conv['convId']); ?>">
                         <div class="convDiv">
+                            <!-- <textarea rows="3" cols="33" disabled><?= htmlspecialchars_decode($conv['lastMessage']); ?></textarea> -->
                             <p><?= htmlspecialchars_decode($conv['lastMessage']); ?></p>
                         </div>      
                     </a>

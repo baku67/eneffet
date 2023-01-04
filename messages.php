@@ -23,8 +23,6 @@
 
                 break;
         }
-
-
     }
 
     $identifier = $_SESSION["usersId"];

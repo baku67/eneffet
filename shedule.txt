@@ -1,3 +1,11 @@
+Dans templates/conv.php: Onclick sur un messageDiv => changer le display none du <p>Date</p> au dessus avex la transition du height et tout (chercher "DATE TEST")
+
+Quand suppresssion d'un message, bien UPDATE le lastMessage dans "conv" 
+
+Dans convs ou message: intégrer le nom et/ou l'image !  (+ rappel icone company su jobList.job)
+
+Dans convDetail, faire que ça scroll jusqu'au dernier message (function scrollIntoView() sur lastMessage)
+
 Rework style inputTrait et input Langue/skills
 
 Changer les background color des cards jobList en fonction d'un truc (catégorie, niv requis, type, ?)
@@ -29,9 +37,9 @@ Voir pour hover
 Dans onglet Profil: scroll chiant, mettre plutot des raccourcis au top de la pageNoScroll: Infos+Photo, Experiences/Formations, Personalité, Autres, visibilité/confidentialité
  OU ALORS header de chaque section avec un collapse bouton 'v'
 
+
 Loisirs dans section perso/skills, en dessous?
 
-faire le modifyEvent.php
 
 CV: qualités et defauts: 3 qualités, 2 defauts (defauts obligatoires? oui) (nbr d'ajouts libre ?)
     -> input = 1 mot par input et maxLength (pas d'espaces, de specialChar, de /n, pas plus de 30char, etc...) possiblité de mot composé(-) (self-controle etc jsp)
@@ -39,31 +47,21 @@ CV: qualités et defauts: 3 qualités, 2 defauts (defauts obligatoires? oui) (nb
     -> pas de qualités affichées tant que defaut = "" (avertir)
 
 
-Filtre, imagesCV, trigger BDD insert CV on register, form modify exp, add formation, favoris
 
-page jobDetail: background, header+Titre avec bandeau et BgImg, carte plus petite avec scroll sur content (no scroll sur la page) ?
 
-Chopper l'id de la card Job avec JS, 
 
 Lors inscription: choix "demandeur d'emploi", "recruteur"
 
-Remove experience/Modify
+Modify Event:
 Quand clique sur modifier (experience), faire pop le form pré-remplis (là ou pop le form addExp)
 
-Images CV: https://www.codexworld.com/store-retrieve-image-from-database-mysql-php/
 
-Finir le declencheur BDD (nouvelle ligne CV lors register User)
-https://databasefaqs.com/sql-server-trigger-after-insert/
 
-Filtre recherche d'emploi: juste mettre un WHERE categorie ou WHERE locality = $_POST
 
-Lors register: créer la ligne cv avec l'userID correspondant (db event?)
 
-Voir pour ajouter photo sur serveur et systeme de noms d'image stocké bdd
 
 Modal homemade (comfirmation suppression experience)
 
-Options/select/checkbox front du form CV (permis, etc...)
 Controles front forms (avec flash) et controles back et encodage
 
 
@@ -72,7 +70,6 @@ IDEE pour eviter pb de taille image-background: mettre l'image uniquement sur le
 Si on garde le background-image, onglet active: ajouter le background-color et color correspondant
 
 
-favoris (id, userId, jobId)
 
 Lors 'sauvegarde' button, check front (js) si champs vides ou pas coorespondant (tel doit etre int, mail check web, etc...)
 Boutons ajouter une experience/formation (2 tables relationnelles user)
