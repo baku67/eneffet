@@ -217,11 +217,22 @@
   width: 60%;
 }
 
-
+.elemSeparator {
+  color:grey; 
+  position:relative; 
+  text-align:center; 
+  line-height:0;
+}
 
 
 #mainCourrier {
-  margin-top:80px;
+  /* margin-top:80px; */
+  margin-top: 65px;
+}
+#courrierTitle {
+  font-family: 'Dosis', sans-serif ;
+  font-size: 2em;
+  margin: 40px auto;
 }
 .convDiv {
   position: relative;

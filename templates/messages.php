@@ -39,6 +39,8 @@
 
         <div id="mainCourrier">
 
+            <h2 id="courrierTitle" class="titleBg">Messagerie</h2>
+
             <div id="convContainer">
                 <?php
                 if(empty($convs)) {
@@ -54,6 +56,7 @@
                             <p><?= htmlspecialchars_decode($conv['lastMessage']); ?></p>
                         </div>      
                     </a>
+                    <p class="elemSeparator">- - -</p>
                 <?php
                 }
                 ?>

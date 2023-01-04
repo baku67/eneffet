@@ -106,7 +106,7 @@
                             <!-- <a href="job.php?id=<?= urlencode($job['identifier']) ?>"><button>Voir détail</button></a> -->
                         </a>
                     </div>
-                    <p style="color:grey; position:relative; text-align:center; line-height:0;">- - -</p>
+                    <p class="elemSeparator">- - -</p>
                 <?php
                     }
                 }

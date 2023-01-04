@@ -1,6 +1,6 @@
 window.onload = function() {
 
-    // ScrollIntoView() last message Conv (OK)
+    // ScrollIntoView (vers le bas de la conv), du lastMessage Conv (OK!)
     var messageArray = document.querySelectorAll(".msgBubble");
         // console.log("Nombre de messages: " + messageArray.length);
         // console.log(messageArray);
