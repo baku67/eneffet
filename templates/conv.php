@@ -65,10 +65,21 @@
                     <input type="hidden" name="type" value="sendMessage">
                     <!-- <input type="hidden" name="contactId" value=""> -->
                     <input type="hidden" name="convId" value="<?= $convId; ?>">
+                    <!-- Input type de message text -->
+                    <input type="hidden" name="msgType" value="text">
                     <textarea id="messageTextInput" name="message" placeholder="Entrez un message..." rows="5" cols="33"></textarea>
                     <input type="submit" value="Envoyer">
                 </form>
             </div>
+
+            <!-- Formulaire d'envoi d'image dans la conv (accepter unqinquement les .png, .jpg, etc..) -->
+            <form action="convDetail.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="type" value="sendImg">
+                <input type="hidden" name="convId" value="<?= $convId; ?>">
+                <input type="hidden" name="msgType" value="img">
+                <input type="file" name="imgToConv" id="imgToConv">
+                <input type="submit" value="Envoyer la pièce jointe">
+            </form>
 
         </div>
 

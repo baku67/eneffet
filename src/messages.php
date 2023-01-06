@@ -39,9 +39,9 @@
 
         // Envoi du 1er message de la conv apres creation conv
         $statement = $database->prepare(
-            "INSERT INTO messages (conv_id, user_id, publisher_id, message) VALUES (?, ?, ?, ?)"
+            "INSERT INTO messages (conv_id, user_id, publisher_id, message, type) VALUES (?, ?, ?, ?, ?)"
         );
-        $statement->execute([$convId, $data["userId"], $data["jobPublisherId"], $data["message"]]);
+        $statement->execute([$convId, $data["userId"], $data["jobPublisherId"], $data["message"], $data["messageType"], "text"]);
 
 
         // Update du last_message de la conv correspondante:
@@ -111,10 +111,24 @@
         $database = dbConnect();
 
         $statement = $database->prepare(
-            "INSERT INTO messages (conv_id, user_id, message) VALUES (?, ?, ?)"
+            "INSERT INTO messages (conv_id, user_id, message, type) VALUES (?, ?, ?, ?)"
         );
-        $statement->execute([$data["convId"], $data["userId"], $data["message"]]);
+        $statement->execute([$data["convId"], $data["userId"], $data["message"], $data["messageType"]]);
     }
+
+
+
+    function addImgConvPath($data) {
+        $database = dbConnect();
+
+        $statement = $database->prepare(
+            "INSERT INTO messages (conv_id, user_id, type, img_url) VALUES (?, ?, ?, ?)"
+        );
+        $statement->execute([$data["convId"], $data["userId"], $data["messageType"], $data["filePath"]]);
+
+    }
+
+
 
     function setLastMessage($data) {
         $database = dbConnect();

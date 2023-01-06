@@ -1,3 +1,6 @@
+Message type: text ou img (jouter message_type et img_url(default null))
+Et ajouter type: msg+Img (compatible db)
+
 Dans templates/conv.php: Onclick sur un messageDiv => changer le display none du <p>Date</p> au dessus avex la transition du height et tout (chercher "DATE TEST")
 
 Quand suppresssion d'un message, bien UPDATE le lastMessage dans "conv" 
