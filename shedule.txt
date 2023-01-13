@@ -1,3 +1,10 @@
+Apres: liste des chercheurs d'emploi (bool=visibles)
+Systeme de page entreprise equivalent à cv pour entreprise
+
+Rearranger CV: qualités/defauts avec Loisirs dans 1 section en dessous, et ajouter outils dans compétences|langues+outils
+
+
+
 Message type: text ou img (jouter message_type et img_url(default null))
 Et ajouter type: msg+Img (compatible db)
 

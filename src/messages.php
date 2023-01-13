@@ -88,7 +88,7 @@
         $database = dbConnect();
 
         $statement = $database->prepare(
-            "SELECT user_id, message FROM messages WHERE conv_id = ?"
+            "SELECT user_id, message, type, img_url FROM messages WHERE conv_id = ?"
         );
         $statement->execute([$convId]);
 
@@ -97,7 +97,9 @@
         while($row = $statement->fetch()) {
             $msg = [
                 "senderId" => $row["user_id"],
-                "message" => $row["message"]
+                "message" => $row["message"],
+                "imageUrl" => $row["img_url"],
+                "messageType" => $row["type"]
             ];
             $messagesConv[] = $msg;
         }
@@ -111,9 +113,9 @@
         $database = dbConnect();
 
         $statement = $database->prepare(
-            "INSERT INTO messages (conv_id, user_id, message, type) VALUES (?, ?, ?, ?)"
+            "INSERT INTO messages (conv_id, user_id, type, message) VALUES (?, ?, ?, ?)"
         );
-        $statement->execute([$data["convId"], $data["userId"], $data["message"], $data["messageType"]]);
+        $statement->execute([$data["convId"], $data["userId"], $data["messageType"], $data["message"]]);
     }
 
 

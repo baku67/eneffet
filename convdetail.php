@@ -2,15 +2,15 @@
     session_start();
     require("src/messages.php");
 
-    // recup du convId
-
 
     // Detail de la conv
     if (isset($_GET['action']) && $_GET['action'] !== '') {
         if ($_GET['action'] === 'convdetail') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
+                // On choppe l'id de la conv quand on clique sur une conv de la liste messages.php
                 $convId = $_GET['id'];
         
+                // Détails des messages de la conv 
                 $convDetail = convDetail($convId);
             }
         }
@@ -31,10 +31,12 @@
                     "message" => $_POST["message"],
                     "messageType" => $_POST["msgType"]
                 ];
+                $convId = $_POST["convId"];
 
                 sendMessage($data);
                 setLastMessage($data);
                 $convDetail = convDetail($_POST["convId"]);
+
                 // updateLastMessage($data);
                 break;
 
@@ -92,19 +94,37 @@
                     $data = [
                         "userId" => $_SESSION['usersId'],
                         "convId" => $_POST["convId"],
-                        "filePath" => $target_file,
+                        "filePath" => "testImage",
                         "messageType" => $_POST["msgType"]
                     ];
-
+                    $convId = $_POST["convId"];
                     addImgConvPath($data);
                     $convDetail = convDetail($_POST["convId"]);
-                    
                     break;
                 }
 
+                //////////////////////////////////////////////////////////////////////////////////
+                // C'est le isset'sumbit' qui cassait tout ? (AUCUNE VERIFICATIONS DU FICHIER )
+                $data = [
+                    "userId" => $_SESSION['usersId'],
+                    "convId" => $_POST["convId"],
+                    "filePath" => $target_file,
+                    "messageType" => $_POST["msgType"]
+                ];
+                addImgConvPath($data);
+                move_uploaded_file($_FILES["imgToConv"]["tmp_name"], $target_file);
+
+                $dataSetLastMsg = [
+                    "message" => "Image",
+                    "convId" => $_POST["convId"]
+                ];
+                setLastMessage($dataSetLastMsg);
+
+                $convId = $_POST["convId"];
+                $convDetail = convDetail($_POST["convId"]);
+                break;
+
         }
-        // eneleve les erreurs apres upload Img mais page vide:
-        // $convDetail = convDetail($_POST["convId"]);
 
     }
     

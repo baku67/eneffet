@@ -36,6 +36,7 @@
         </div>
 
         <div id="mainConv">
+            <!-- Il faut créer une grid 1 colonne 2 lignes (conv 1.6 et input 0.4) -->
 
             <div id="conv">
                 <?php foreach($convDetail as $message) 
@@ -44,42 +45,64 @@
                     ?>
                     <p style="display:none; transition:all 0.3s;">DATE TEST</p>
                     <div class="msgBubble contact">
-                            <p class="msgBubbleText"><?= $message["message"]; ?></p>
-                        </div> 
+                        <?php 
+                        if($message["messageType"] == "text") {
+                        ?>
+                        <p class="msgBubbleText"><?= $message["message"]; ?></p>
+                        <?php 
+                        } elseif($message["messageType"] == "img"){
+                        ?>
+                        <img class="imgMessage" src="./<?=$message["imageUrl"]; ?>">
+                        <?php
+                        }
+                        ?>
+                    </div> 
                     <?php
                     }
                     else {
                     ?>
                     <p style="display:none; transition:all 0.3s;">DATE TEST</p>
                     <div class="msgBubble user">
-                            <p class="msgBubbleText"><?= $message["message"]; ?></p>
-                        </div>
+                    <?php 
+                        if($message["messageType"] == "text") {
+                        ?>
+                        <p class="msgBubbleText"><?= $message["message"]; ?></p>
+                        <?php 
+                        } elseif($message["messageType"] == "img"){
+                        ?>
+                        <img class="imgMessage" src="./<?=$message["imageUrl"]; ?>">
+                        <?php
+                        }
+                        ?>
+                    </div>
                     <?php
                     }
                 }
                 ?>
             </div>
 
+            <!-- Formulaire d'envoi de msg dans la conv -->
             <div id="sendMessageDiv">
                 <form action="convdetail.php" method="post">
                     <input type="hidden" name="type" value="sendMessage">
-                    <!-- <input type="hidden" name="contactId" value=""> -->
                     <input type="hidden" name="convId" value="<?= $convId; ?>">
-                    <!-- Input type de message text -->
                     <input type="hidden" name="msgType" value="text">
                     <textarea id="messageTextInput" name="message" placeholder="Entrez un message..." rows="5" cols="33"></textarea>
                     <input type="submit" value="Envoyer">
                 </form>
             </div>
 
-            <!-- Formulaire d'envoi d'image dans la conv (accepter unqinquement les .png, .jpg, etc..) -->
-            <form action="convDetail.php" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="type" value="sendImg">
-                <input type="hidden" name="convId" value="<?= $convId; ?>">
-                <input type="hidden" name="msgType" value="img">
-                <input type="file" name="imgToConv" id="imgToConv">
-                <input type="submit" value="Envoyer la pièce jointe">
-            </form>
+            <!-- Formulaire d'envoi d'img -->
+            <div id="sendImgDiv">
+                <form action="convdetail.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="type" value="sendImg">
+                    <input type="hidden" name="convId" value="<?= $convId; ?>">
+                    <input type="hidden" name="msgType" value="img">
+                    <input type="file" name="imgToConv" id="imgToConv" required>
+                    <input type="submit" value="Envoyer la pièce jointe">
+                </form>
+            </div>
+
 
         </div>
 
